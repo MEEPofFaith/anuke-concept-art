@@ -1,5 +1,6 @@
 weaponOffsetY	: 1
 weapon: {
+  name: revenant-missiles
   length: 1
   width: 5
   reload: 70
