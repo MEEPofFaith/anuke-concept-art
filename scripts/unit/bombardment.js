@@ -70,10 +70,10 @@ const satelite = entityLib.extendUnit(hoverUnit, "bombardment", [{
     this.body = Core.atlas.find(this.name)
     this.wing = Core.atlas.find(this.name + "-wing")
   }
-  drawAbove(unit, rot) {
+  drawAbove(Unit, rot) {
     Draw.rect(this.body, player.x, player.y, rot);
   }
-  drawUnder(unit, rot) {
+  drawUnder(Unit, rot) {
     Draw.rect(this.wing, player.x, player.y, rot);
   }
 }]);
