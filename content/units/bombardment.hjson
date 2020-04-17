@@ -30,7 +30,7 @@ weapon: {
     backColor: f68021
     trailColor: d06b53
     speed: 3.9
-    damage: 480
+    damage: 960
     splashDamageRadius: 60
     splashDamage: 460
     bulletWidth: 16
