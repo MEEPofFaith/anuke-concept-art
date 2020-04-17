@@ -1,3 +1,4 @@
+type = hoverUnit
 localizedName: Bombardment
 speed: 0.01
 maxVelocity: 0.6

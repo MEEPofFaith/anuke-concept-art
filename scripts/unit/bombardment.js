@@ -65,7 +65,7 @@ bombardmentMissile.alternate = true;
 bombardmentMissile.velocityRnd = 0.1;
 bombardmentMissile.shootSound = "orbitalblast";
 
-const satelite = entityLib.extendUnit(HoverUnit, "bombardment", [{
+const satelite = entityLib.extendUnit(Unit, "bombardment", [{
   loadAfter(){
     this.body = Core.atlas.find(this.name)
     this.wing = Core.atlas.find(this.name + "-wing")
