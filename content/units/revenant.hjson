@@ -1,5 +1,13 @@
 weaponOffsetY	: 1
 weapon: {
   length: 1
-  width: 3
+  width: 5
+  reload: 70
+  shots: 2
+  inaccuracy: 2
+  alternate: true
+  ajectEffect: none
+  velocityRnd: 0.2
+  shootSound: missile
+  bullet: missileRevenant
 }
