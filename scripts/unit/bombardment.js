@@ -67,14 +67,10 @@ bombardmentMissile.shootSound = "orbitalblast";
 
 const satelite = entityLib.extendUnit(hoverUnit, "bombardment", [{
   loadAfter(){
-    this.body = Core.atlas.find(this.name)
-    this.wing = Core.atlas.find(this.name + "-wing")
+    this.body = Core.atlas.find(this.name + "-body")
   }
   drawAbove(Unit, rot) {
     Draw.rect(this.body, player.x, player.y, rot);
-  }
-  drawUnder(Unit, rot) {
-    Draw.rect(this.wing, player.x, player.y, rot);
   }
 }]);
 satelite.weapons = [missileLauncher, bombardmentMissile];
