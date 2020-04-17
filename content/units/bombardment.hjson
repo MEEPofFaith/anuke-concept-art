@@ -1,3 +1,4 @@
+type: HoverUnit
 localizedName: Bombardment
 speed: 0.01
 maxVelocity: 0.6
@@ -13,3 +14,31 @@ engineOffset: 40
 engineSize: 7.5
 rotatespeed: 0.05
 baseRotateSpeed: 0.02
+weapon: {
+  name: underbelly-cannon
+  reload: 920
+  width: 0
+  length: 4
+  shots: 1
+  inaccuracy: 0.1
+  alternate: true
+  velocityRnd: 0.1
+  shootSound: orbitalblast
+  bullet: {
+    bulletSprite: shell
+    frontColor: f8ad42
+    backColor: f68021
+    trailColor: d06b53
+    speed: 1.3
+    damage: 280
+    splashDamageRadius: 60
+    splashDamage: 260
+    bulletWidth: 16
+    bulletHeight: 20
+    bulletShrink: 0
+    keepVelocity: false
+    hitEffect: blastExplosion
+    despawnEffect: blastExplosion
+    lifetime: 312
+  }
+}
