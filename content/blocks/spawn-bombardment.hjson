@@ -1,0 +1,18 @@
+localizedName: Bombardment Spawner
+description: Spawns a single Bombardment for free.
+health: 10000
+produceTime: 1
+maxSpawn: 1
+hasPower: false
+consumes: {
+  items: {
+    items: [
+    ]
+  }
+}
+requirements: [
+]
+size: 1
+unitType: bombardment
+category: units
+buildVisibility: sandboxOnly

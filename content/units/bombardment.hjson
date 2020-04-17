@@ -1,0 +1,15 @@
+localizedName: Bombardment
+speed: 0.01
+maxVelocity: 0.6
+drag: 0.02
+range: 600
+attackLength: 360
+shootCone: 10
+mass: 30
+hitsize: 56
+flying: true
+rotateWeapon: false
+engineOffset: 40
+engineSize: 7.5
+rotatespeed: 0.05
+baseRotateSpeed: 0.02
