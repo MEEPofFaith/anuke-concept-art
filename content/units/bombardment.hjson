@@ -42,7 +42,7 @@ weapon: {
     bulletShrink: 0
     drag: -0.1
     keepVelocity: true
-    weaveScale: 2
+    weaveScale: 12
     weaveMag: 48
     hitEffect: blastExplosion
     despawnEffect: blastExplosion
