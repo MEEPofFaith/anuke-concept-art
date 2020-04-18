@@ -9,14 +9,14 @@ bM.backColor = Color.valueOf("f68021");
 bM.trailColor = Color.valueOf("d06b53");
 bM.speed = 3.9;
 bM.damage = 720;
-bM.splashDamageRadius = 60;
+bM.splashDamageRadius = 120;
 bM.splashDamage = 700;
 bM.bulletWidth = 16;
 bM.bulletHeight = 20;
 bM.bulletShrink = 0
 bM.keepVelocity = false;
-bM.hitEffect = Fx.flakExplosionBig;
 bM.despawnEffect = Fx.flakExplosionBig;
+bM.hitEffect = Fx.flakExplosionBig;
 bM.lifetime = 104; //About 50 blocks travel distance.
 
 const satelite = entityLib.extendUnit(HoverUnit, "bombardment", [{
@@ -29,7 +29,7 @@ const satelite = entityLib.extendUnit(HoverUnit, "bombardment", [{
             
             //shoot effect
             Draw.color(Color.valueOf("eba313"), Color.valueOf("f28a2e"), Color.valueOf("696969"), e.fin());
-            Angles.randLenVectors(e.id, 10, e.finpow() * 70, e.rotation, 10, (e.x, e.y) -> {
+            Angles.randLenVectors(e.id, 10, e.finpow() * 70, e.rotation, 10, (x, y) => {
                 Fill.circle(e.x + x, e.y + y, 0.65 + e.fout() * 1.6);
             });
         }
