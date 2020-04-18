@@ -43,7 +43,7 @@ weapon: {
     drag: -0.1
     keepVelocity: true
     weaveScale: 8
-    weaveMag: 15
+    weaveMag: 8
     hitEffect: blastExplosion
     despawnEffect: blastExplosion
     lifetime: 120
