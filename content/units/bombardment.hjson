@@ -3,7 +3,7 @@ localizedName: Bombardment
 speed: 0.01
 maxVelocity: 0.6
 drag: 0.02
-range: 600
+range: 480
 attackLength: 300
 shootCone: 10
 mass: 30
@@ -21,7 +21,7 @@ weapon: {
   length: -3
   shots: 4
   spacing: 0
-  inaccuracy: 15
+  inaccuracy: 7.5
   alternate: false
   velocityRnd: 0.5
   shootSound: missile
