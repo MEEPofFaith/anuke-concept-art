@@ -24,6 +24,7 @@ weapon: {
   inaccuracy: 0.2
   alternate: false
   velocityRnd: 0.2
+  shotDelay: 6
   shootSound: missile
   bullet: {
     bulletSprite: shell
