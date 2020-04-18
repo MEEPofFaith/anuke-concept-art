@@ -32,7 +32,7 @@ weapon: {
     trailColor: d06b53
     speed: 5.4
     damage: 60
-    splashDamageRadius: 28
+    splashDamageRadius: 52
     splashDamage: 55
     bulletWidth: 8
     bulletHeight: 8
