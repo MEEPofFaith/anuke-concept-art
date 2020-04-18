@@ -43,8 +43,6 @@ weapon: {
     keepVelocity: true
     weaveScale: 2
     weaveMag: 48
-    homingPower: 0
-    homingRange: 0
     hitEffect: blastExplosion
     despawnEffect: blastExplosion
     lifetime: 120
