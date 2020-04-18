@@ -4,7 +4,7 @@ speed: 0.01
 maxVelocity: 0.6
 drag: 0.02
 range: 600
-attackLength: 360
+attackLength: 300
 shootCone: 10
 mass: 30
 hitsize: 56
@@ -19,9 +19,9 @@ weapon: {
   reload: 6
   width: 27
   length: -3
-  shots: 2
+  shots: 4
   spacing: 0
-  inaccuracy: 2
+  inaccuracy: 15
   alternate: false
   velocityRnd: 0.5
   shootSound: missile
@@ -43,6 +43,6 @@ weapon: {
     weaveMag: 16
     hitEffect: blastExplosion
     despawnEffect: blastExplosion
-    lifetime: 75
+    lifetime: 120
   }
 }
