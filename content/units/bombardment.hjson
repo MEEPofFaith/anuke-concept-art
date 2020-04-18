@@ -16,15 +16,14 @@ rotatespeed: 0.05
 baseRotateSpeed: 0.02
 weapon: {
   name: swarm-missiles
-  reload: 30
+  reload: 6
   width: 27
   length: -3
-  shots: 4
-  spacing: 0.8
-  inaccuracy: 0.2
+  shots: 2
+  spacing: 0
+  inaccuracy: 2
   alternate: false
-  velocityRnd: 0.2
-  shotDelay: 6
+  velocityRnd: 0.5
   shootSound: missile
   bullet: {
     bulletSprite: shell
@@ -32,9 +31,9 @@ weapon: {
     backColor: f68021
     trailColor: d06b53
     speed: 5.4
-    damage: 45
+    damage: 60
     splashDamageRadius: 28
-    splashDamage: 40
+    splashDamage: 55
     bulletWidth: 8
     bulletHeight: 8
     bulletShrink: 0
