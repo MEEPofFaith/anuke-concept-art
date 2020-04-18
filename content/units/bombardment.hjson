@@ -15,30 +15,34 @@ engineSize: 7.5
 rotatespeed: 0.05
 baseRotateSpeed: 0.02
 weapon: {
-  name: underbelly-cannon
-  reload: 150
-  width: 0
-  length: 4
-  shots: 1
-  inaccuracy: 0.1
-  alternate: true
-  velocityRnd: 0.1
-  shootSound: orbitalblast
+  name: swarm-missiles
+  reload: 30
+  width: 27
+  length: -3
+  shots: 4
+  spacing: 0
+  inaccuracy: 0.5
+  alternate: false
+  velocityRnd: 0.2
+  shootSound: missile
   bullet: {
     bulletSprite: shell
     frontColor: f8ad42
     backColor: f68021
     trailColor: d06b53
-    speed: 3.9
-    damage: 720
-    splashDamageRadius: 60
-    splashDamage: 700
-    bulletWidth: 16
-    bulletHeight: 20
+    speed: 5.4
+    damage: 12
+    splashDamageRadius: 28
+    splashDamage: 11
+    bulletWidth: 8
+    bulletHeight: 8
     bulletShrink: 0
-    keepVelocity: false
+    drag: -0.02
+    keepVelocity: true
+    weaveScale: 6
+    weaveMag: 2
     hitEffect: blastExplosion
     despawnEffect: blastExplosion
-    lifetime: 104
+    lifetime: 75
   }
 }
