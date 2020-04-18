@@ -1,4 +1,3 @@
-type: HoverUnit
 localizedName: Bombardment
 speed: 0.01
 maxVelocity: 0.6
@@ -40,7 +39,7 @@ weapon: {
     drag: -0.02
     keepVelocity: true
     weaveScale: 6
-    weaveMag: 2
+    weaveMag: 6
     hitEffect: blastExplosion
     despawnEffect: blastExplosion
     lifetime: 75
