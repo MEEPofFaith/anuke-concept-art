@@ -20,8 +20,8 @@ weapon: {
   width: 27
   length: -3
   shots: 4
-  spacing: 0
-  inaccuracy: 0.5
+  spacing: 0.8
+  inaccuracy: 0.2
   alternate: false
   velocityRnd: 0.2
   shootSound: missile
@@ -31,13 +31,13 @@ weapon: {
     backColor: f68021
     trailColor: d06b53
     speed: 5.4
-    damage: 12
+    damage: 45
     splashDamageRadius: 28
-    splashDamage: 11
+    splashDamage: 40
     bulletWidth: 8
     bulletHeight: 8
     bulletShrink: 0
-    drag: -0.02
+    drag: -0.1
     keepVelocity: true
     weaveScale: 4
     weaveMag: 16
