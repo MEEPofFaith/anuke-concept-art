@@ -4,8 +4,8 @@ health: 8000
 speed: 0.01
 maxVelocity: 0.6
 drag: 0.02
-range: 480
-attackLength: 300
+range: 240
+attackLength: 160
 shootCone: 10
 mass: 30
 hitsize: 56
@@ -17,14 +17,15 @@ rotatespeed: 0.05
 baseRotateSpeed: 0.02
 weapon: {
   name: swarm-missiles
-  reload: 6
+  reload: 24
   width: 27
   length: -3
-  shots: 4
-  spacing: 0
-  inaccuracy: 7.5
+  shots: 8
+  spacing: 3
+  shotDelay: 3
+  inaccuracy: 0
   alternate: false
-  velocityRnd: 0.5
+  velocityRnd: 0.2
   shootSound: missile
   bullet: {
     type: MissileBulletType
@@ -34,18 +35,18 @@ weapon: {
     backColor: f68021
     trailColor: d06b53
     speed: 5.4
-    damage: 60
-    splashDamageRadius: 52
-    splashDamage: 55
+    damage: 10
+    splashDamageRadius: 36
+    splashDamage: 9
     bulletWidth: 8
     bulletHeight: 8
     bulletShrink: 0
-    drag: -0.1
+    drag: -0.5
     keepVelocity: true
     weaveScale: 6
     weaveMag: 4
     hitEffect: blastExplosion
     despawnEffect: blastExplosion
-    lifetime: 120
+    lifetime: 100
   }
 }
