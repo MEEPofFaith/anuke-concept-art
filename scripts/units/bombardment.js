@@ -1,4 +1,3 @@
-var shots = 4;
 const vec = new Vec2();
 
 //effect yoinked from z0mbiesrock/Diamond-Ore
@@ -36,20 +35,15 @@ deffst.collidesAir = true;
 const satelite = extendContent(UnitType, "bombardment", {
   update(){
 		this.super$update();
-    if(this.getShootTimer==3){
-      this.shots ++;
-      if(this.shots > 3){
-        this.shots = 0;
-        
-        vec.trns(0, 0, 4);
-        Calls.createBullet(deffst, this.getTeam(), this.x, this.y + vec.y, this.rot, (1 - 0.2) + Mathf.random(0.2), 104);
-        
-        //shoot effect
-        Draw.color(Color.valueOf("eba313"), Color.valueOf("f28a2e"), Color.valueOf("696969"), this.fin());
-        Angles.randLenVectors(this.id, 10, this.finpow() * 70, this.rot(), 10, (x, y) => {
-            Fill.circle(this.x + x, this.y + y, 0.65 + this.fout() * 1.6);
-        });
-      }
+    if(Time.time()%120 ==0){
+      vec.trns(0, 0, 4);
+      Calls.createBullet(deffst, this.getTeam(), this.x, this.y + vec.y, this.rot, (1 - 0.2) + Mathf.random(0.2), 104);
+      
+      //shoot effect
+      Draw.color(Color.valueOf("eba313"), Color.valueOf("f28a2e"), Color.valueOf("696969"), this.fin());
+      Angles.randLenVectors(this.id, 10, this.finpow() * 70, this.rot(), 10, (x, y) => {
+          Fill.circle(this.x + x, this.y + y, 0.65 + this.fout() * 1.6);
+      });
     }
   }
 });
