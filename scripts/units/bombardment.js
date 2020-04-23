@@ -1,3 +1,4 @@
+var shots = 0;
 const vec = new Vec2();
 
 const deffst = extend(MissileBulletType, {})
@@ -18,7 +19,6 @@ deffst.hitEffect = Fx.flakExplosionBig;
 deffst.lifetime = 104; //About 50 blocks travel distancthis.
 
 const satelite = extendContent(UnitType, "bombardment", {
-  var shots = 0;
   update(){
 		this.super$update();
     if(this.getShootTimer(true) ==0){
