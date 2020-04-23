@@ -1,5 +1,5 @@
 const vec = new Vec2();
-var t = 1;
+var t = 9999;
 
 //effect yoinked from z0mbiesrock/Diamond-Ore
 const flammen = newEffect(45, e => {
@@ -35,7 +35,7 @@ deffst.collidesAir = true;
 
 const satelite = extendContent(UnitType, "bombardment", {
   behavior(){
-		this.super$behavior();
+		//this.super$behavior();
     t ++;
     if(t > 119){
       t = 1;
