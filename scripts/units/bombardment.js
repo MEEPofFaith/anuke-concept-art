@@ -1,4 +1,4 @@
-var shots = 3;
+var shots = 4;
 const vec = new Vec2();
 
 //effect yoinked from z0mbiesrock/Diamond-Ore
