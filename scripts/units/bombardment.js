@@ -1,11 +1,11 @@
 const vec = new Vec2();
-var t = 9999;
+var t = 1;
 
 //effect yoinked from z0mbiesrock/Diamond-Ore
 const flammen = newEffect(45, e => {
 	Draw.color(Color.valueOf("#ffffff"), Color.valueOf("#e68b02"), e.fin());
     const d = new Floatc2({get(x, y){
-    Fill.circle(e.x + x, e.y + y, 0.25 + e.fin() * 2);
+    Fill.circle(e.x + x, e.y + y, 0.25 + e.fin() * 3);
     }})
     Angles.randLenVectors(e.id, 6, -10 + 40 * e.fin(), e.rotation + 180, 360 * e.fin(),d);
 	Draw.color(Color.valueOf("#ffffff"), Color.valueOf("#e68b02"), e.fout());
@@ -18,10 +18,10 @@ deffst.backColor = Color.valueOf("f68021");
 deffst.trailColor = Color.valueOf("d06b53");
 deffst.trailEffect = flammen;
 deffst.speed = 3.9;
-deffst.damage = 720;
-deffst.drag = -0.02;
+deffst.damage = 1500;
+deffst.drag = -0.05;
 deffst.splashDamageRadius = 120;
-deffst.splashDamage = 700;
+deffst.splashDamage = 1420;
 deffst.bulletWidth = 16;
 deffst.bulletHeight = 20;
 deffst.bulletShrink = 0
