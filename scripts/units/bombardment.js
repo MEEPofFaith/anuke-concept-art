@@ -1,5 +1,3 @@
-const entityLib = this.global.entityLib;
-
 var shots = 0;
 
 const deffst = extend(MissileBulletType, {})
