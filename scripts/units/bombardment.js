@@ -32,7 +32,7 @@ deffst.lifetime = 62; //About 30 blocks travel distancthis.
 deffst.collides = true;
 deffst.collidesTiles = true;
 deffst.collidesAir = true;
-deffst.hitEffect = orbitalblast;
+deffst.hitSound = orbitalblast;
 
 const satelite = extendContent(UnitType, "bombardment", {});
 satelite.create(prov(() => new JavaAdapter(HoverUnit, {
