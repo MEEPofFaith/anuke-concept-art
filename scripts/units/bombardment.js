@@ -33,9 +33,17 @@ deffst.collides = true;
 deffst.collidesTiles = true;
 deffst.collidesAir = true;
 
-const satelite = extendContent(UnitType, "bombardment", {
-  update(){
-		//this.super$update();
+const satelite = extendContent(UnitType, "bombardment", {});
+satelite.create(prov(() => new JavaAdapter(HoverUnit, {
+  onDeath(){
+    this.super$onDeath();
+    for(var yes = 0; yes < 360; yes += 5){
+      vec.trns(0, 0, -4);
+      Calls.createBullet(deffst, this.getTeam(), this.x, this.y + vec.y, yes + Mathf.random(-10,10), (0.8) + Mathf.random(0.2), 104);
+    }
+  },
+  behavior(){
+		this.super$behavior();
     if(++t >= 120){
       t = 1;
       
@@ -47,15 +55,6 @@ const satelite = extendContent(UnitType, "bombardment", {
       Angles.randLenVectors(this.id, 10, this.finpow() * 70, this.rot(), 10, (x, y) => {
           Fill.circle(this.x + x, this.y + y, 0.65 + this.fout() * 1.6);
       });
-    }
-  }
-});
-satelite.create(prov(() => new JavaAdapter(HoverUnit, {
-  onDeath(){
-    this.super$onDeath();
-    for(var yes = 0; yes < 360; yes += 5){
-      vec.trns(0, 0, -4);
-      Calls.createBullet(deffst, this.getTeam(), this.x, this.y + vec.y, yes + Mathf.random(-10,10), (0.8) + Mathf.random(0.2), 104);
     }
   }
 })));
