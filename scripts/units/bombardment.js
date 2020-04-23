@@ -22,9 +22,9 @@ const satelite = extendContent(UnitType, "bombardment", {
   update(){
 		this.super$update();
     if(this.getShootTimer(true) ==0){
-      shots ++;
-      if(shots > 3){
-        shots = 0;
+      this.shots ++;
+      if(this.shots > 3){
+        this.shots = 0;
         
         vec.trns(0, 0, 4);
         Calls.createBullet(deffst, this.getTeam(), this.x, this.y + vec.y, this.rot, (1 - 0.2) + Mathf.random(0.2), 104);
