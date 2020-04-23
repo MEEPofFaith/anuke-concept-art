@@ -51,10 +51,10 @@ satelite.create(prov(() => new JavaAdapter(HoverUnit, {
       Calls.createBullet(deffst, this.getTeam(), this.x, this.y + vec.y, this.rotation, (1 - 0.2) + Mathf.random(0.2), 104);
       
       //shoot effect
-      Draw.color(Color.valueOf("eba313"), Color.valueOf("f28a2e"), Color.valueOf("696969"), this.fin());
-      Angles.randLenVectors(this.id, 10, this.finpow() * 70, this.rot(), 10, (x, y) => {
+      /*Draw.color(Color.valueOf("eba313"), Color.valueOf("f28a2e"), Color.valueOf("696969"));
+      Angles.randLenVectors(this.id, 10, this.finpow() * 70, this.rotation, 10, (x, y) => {
           Fill.circle(this.x + x, this.y + y, 0.65 + this.fout() * 1.6);
-      });
+      });*/
     }
   }
 })));
