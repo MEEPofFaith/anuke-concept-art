@@ -1,4 +1,5 @@
 var shots = 0;
+const vec = new Vec2();
 
 const deffst = extend(MissileBulletType, {})
 deffst.bulletSprite = "shell";
@@ -24,9 +25,8 @@ const satelite = extendContent(UnitType, "bombardment", {
       if(shots > 3){
         shots = 0;
         
-        if(owner == null) return;
-        Tmp.v1.trns(angle, 3);
-        Bullet.create(this.deffst, owner, owner.getTeam(), x + Tmp.v1.x, y + Tmp.v1.y, angle, (1 - velocityRnd) + Mathf.random(velocityRnd));
+        vec.trns(0, 0, 4);
+        Calls.createBullet(deffst, this.getTeam(), this.x + Tmp.v1.x, this.y + Tmp.v1.y, this.rot, (1 - velocityRnd) + Mathf.random(velocityRnd), 104);
         
         //shoot effect
         Draw.color(Color.valueOf("eba313"), Color.valueOf("f28a2e"), Color.valueOf("696969"), e.fin());
@@ -41,7 +41,8 @@ satelite.create(prov(() => new JavaAdapter(HoverUnit, {
   onDeath(){
     this.super$onDeath();
     for(var yes = 0; yes < 360; yes += 18){
-      Bullet.create(deffst, owner, owner.getTeam(), x + Tmp.v1.x, y + Tmp.v1.y, yes + Mathf.random(-15,15), (1 - velocityRnd) + Mathf.random(velocityRnd));
+      vec.trns(0, 0, -4);
+      Calls.createBullet(deffst, this.getTeam(), this.x, this.y + vec.y, yes + Mathf.random(-10,10), (1 - velocityRnd) + Mathf.random(velocityRnd), 104);
     }
   }
 })));
