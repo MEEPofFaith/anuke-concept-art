@@ -15,11 +15,12 @@ engineOffset: 40
 engineSize: 7.5
 rotatespeed: 0.05
 baseRotateSpeed: 0.02
+weaponOffsetY: 2
 weapon: {
-  name: swarm-missiles
+  name: bombardment-missiles
   reload: 6
-  width: 27
-  length: -3
+  width: 16
+  length: 2
   shots: 4
   spacing: 0
   inaccuracy: 7.5

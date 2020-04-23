@@ -5,5 +5,4 @@ description:
   '''
   I'm gonna put Anuke's concept art into the game, and later add the new units.
   '''
-version: 2.26-4
-dependencies: [entity-lib]
+version: 2.26-5
