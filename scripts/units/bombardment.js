@@ -36,7 +36,7 @@ deffst.collidesAir = true;
 const satelite = extendContent(UnitType, "bombardment", {
   update(){
 		this.super$update();
-    if(this.getShootTimer(true)==2){
+    if(this.getShootTimer==2){
       this.shots ++;
       if(this.shots > 3){
         this.shots = 0;
