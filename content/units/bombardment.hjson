@@ -19,7 +19,7 @@ weaponOffsetY: 2
 weapon: {
   name: bombardment-missiles
   reload: 24
-  width: 16
+  width: 22
   length: 2
   shots: 8
   spacing: 3
