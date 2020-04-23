@@ -16,10 +16,10 @@ deffst.bulletShrink = 0
 deffst.keepVelocity = false;
 deffst.despawnEffect = Fx.flakExplosionBig;
 deffst.hitEffect = Fx.flakExplosionBig;
-deffst.lifetime = 104; //About 50 blocks travel distance.
+deffst.lifetime = 104; //About 50 blocks travel distancthis.
 
 const satelite = extendContent(UnitType, "bombardment", {
-  /*update(){
+  update(){
     if(shooter.getTimer().get(shooter.getShootTimer(left), reload)){
       shots ++;
       if(shots > 3){
@@ -29,13 +29,13 @@ const satelite = extendContent(UnitType, "bombardment", {
         Calls.createBullet(deffst, this.getTeam(), this.x + Tmp.v1.x, this.y + Tmp.v1.y, this.rot, (1 - velocityRnd) + Mathf.random(velocityRnd), 104);
         
         //shoot effect
-        Draw.color(Color.valueOf("eba313"), Color.valueOf("f28a2e"), Color.valueOf("696969"), e.fin());
-        Angles.randLenVectors(e.id, 10, e.finpow() * 70, e.rotation, 10, (x, y) => {
-            Fill.circle(e.x + x, e.y + y, 0.65 + e.fout() * 1.6);
+        Draw.color(Color.valueOf("eba313"), Color.valueOf("f28a2e"), Color.valueOf("696969"), this.fin());
+        Angles.randLenVectors(this.id, 10, this.finpow() * 70, this.rot(), 10, (x, y) => {
+            Fill.circle(this.x + x, this.y + y, 0.65 + this.fout() * 1.6);
         });
       }
     }
-  }*/
+  }
 });
 satelite.create(prov(() => new JavaAdapter(HoverUnit, {
   onDeath(){
