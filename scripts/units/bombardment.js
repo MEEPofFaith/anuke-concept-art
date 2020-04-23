@@ -42,7 +42,7 @@ satelite.create(prov(() => new JavaAdapter(HoverUnit, {
     this.super$onDeath();
     for(var yes = 0; yes < 360; yes += 18){
       vec.trns(0, 0, -4);
-      Calls.createBullet(deffst, this.getTeam(), this.x, this.y + vec.y, yes + Mathf.random(-10,10), (1 - velocityRnd) + Mathf.random(velocityRnd), 104);
+      Calls.createBullet(deffst, this.getTeam(), this.x, this.y + vec.y, yes + Mathf.random(-10,10), (0.8) + Mathf.random(0.2), 104);
     }
   }
 })));
