@@ -48,7 +48,7 @@ satelite.create(prov(() => new JavaAdapter(HoverUnit, {
       t = 1;
       
       vec.trns(0, 0, 4);
-      Calls.createBullet(deffst, this.getTeam(), this.x, this.y + vec.y, this.rot(), (1 - 0.2) + Mathf.random(0.2), 104);
+      Calls.createBullet(deffst, this.getTeam(), this.x, this.y + vec.y, this.rotation, (1 - 0.2) + Mathf.random(0.2), 104);
       
       //shoot effect
       Draw.color(Color.valueOf("eba313"), Color.valueOf("f28a2e"), Color.valueOf("696969"), this.fin());
