@@ -17,7 +17,7 @@ deffst.despawnEffect = Fx.flakExplosionBig;
 deffst.hitEffect = Fx.flakExplosionBig;
 deffst.lifetime = 104; //About 50 blocks travel distance.
 
-const satelite = extendContent(UnitType, "bombardment") {
+const satelite = extendContent(UnitType, "bombardment", {
     if(shooter.getTimer().get(shooter.getShootTimer(left), reload)){
       shots ++;
       if(shots > 3){
@@ -28,10 +28,10 @@ const satelite = extendContent(UnitType, "bombardment") {
         Bullet.create(this.deffst, owner, owner.getTeam(), x + Tmp.v1.x, y + Tmp.v1.y, angle, (1 - velocityRnd) + Mathf.random(velocityRnd));
         
         //shoot effect
-        Draw.color(Color.valueOf("eba313"), Color.valueOf("f28a2e"), Color.valueOf("696969"), e.fin());
+        /*Draw.color(Color.valueOf("eba313"), Color.valueOf("f28a2e"), Color.valueOf("696969"), e.fin());
         Angles.randLenVectors(e.id, 10, e.finpow() * 70, e.rotation, 10, (x, y) => {
             Fill.circle(e.x + x, e.y + y, 0.65 + e.fout() * 1.6);
-        });
+        });*/
       }
     }
 });
