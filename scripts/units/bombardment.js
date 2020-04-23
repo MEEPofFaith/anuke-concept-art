@@ -52,11 +52,6 @@ satelite.create(prov(() => new JavaAdapter(HoverUnit, {
         vec.trns(0, 0, 4);
         Calls.createBullet(deffst, this.getTeam(), this.x, this.y + vec.y, this.rotation, (1 - 0.2) + Mathf.random(0.2), 104);
         
-        /*try{
-          Sounds.orbitalblast.play(0.75)
-          Sounds.orbitalblast.at(this.x, this.y, Mathf.random(0.9,1,1));
-        }*/
-        
         //shoot effect
         /*Draw.color(Color.valueOf("eba313"), Color.valueOf("f28a2e"), Color.valueOf("696969"));
         Angles.randLenVectors(this.id, 10, this.finpow() * 70, this.rotation, 10, (x, y) => {
