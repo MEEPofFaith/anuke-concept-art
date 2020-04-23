@@ -1,3 +1,4 @@
+type: HoverUnit
 localizedName: Bombardment
 health: 8000
 speed: 0.01
