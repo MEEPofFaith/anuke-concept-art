@@ -1,4 +1,5 @@
 const vec = new Vec2();
+var t = 1;
 
 //effect yoinked from z0mbiesrock/Diamond-Ore
 const flammen = newEffect(45, e => {
@@ -33,9 +34,12 @@ deffst.collidesTiles = true;
 deffst.collidesAir = true;
 
 const satelite = extendContent(UnitType, "bombardment", {
-  update(){
-		this.super$update();
-    if(Time.time()%120 ==0){
+  behavior(){
+		this.super$behavior();
+    t ++;
+    if(t == 120){
+      t = 1;
+      
       vec.trns(0, 0, 4);
       Calls.createBullet(deffst, this.getTeam(), this.x, this.y + vec.y, this.rot, (1 - 0.2) + Mathf.random(0.2), 104);
       
