@@ -34,10 +34,9 @@ deffst.collidesTiles = true;
 deffst.collidesAir = true;
 
 const satelite = extendContent(UnitType, "bombardment", {
-  behavior(){
-		//this.super$behavior();
-    t ++;
-    if(t > 119){
+  update(){
+		//this.super$update();
+    if(++t >= 120){
       t = 1;
       
       vec.trns(0, 0, 4);
