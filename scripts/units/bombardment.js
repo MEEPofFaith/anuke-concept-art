@@ -5,7 +5,7 @@ const vec = new Vec2();
 const flammen = newEffect(45, e => {
 	Draw.color(Color.valueOf("#ffffff"), Color.valueOf("#e68b02"), e.fin());
     const d = new Floatc2({get(x, y){
-    Fill.circle(e.x + x, e.y + y, 0.25 + e.fin());
+    Fill.circle(e.x + x, e.y + y, 0.25 + e.fin() * 2);
     }})
     Angles.randLenVectors(e.id, 6, -10 + 40 * e.fin(), e.rotation + 180, 360 * e.fin(),d);
 	Draw.color(Color.valueOf("#ffffff"), Color.valueOf("#e68b02"), e.fout());
@@ -29,6 +29,9 @@ deffst.keepVelocity = false;
 deffst.despawnEffect = Fx.flakExplosionBig;
 deffst.hitEffect = Fx.flakExplosionBig;
 deffst.lifetime = 104; //About 50 blocks travel distancthis.
+deffst.collides = true;
+deffst.collidesTiles = true;
+deffst.collidesAir = true;
 
 const satelite = extendContent(UnitType, "bombardment", {
   update(){
