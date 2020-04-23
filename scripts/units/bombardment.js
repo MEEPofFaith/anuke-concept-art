@@ -32,6 +32,7 @@ deffst.lifetime = 62; //About 30 blocks travel distancthis.
 deffst.collides = true;
 deffst.collidesTiles = true;
 deffst.collidesAir = true;
+boomboom = Sounds.kitty-concept-art-orbitalblast
 
 const satelite = extendContent(UnitType, "bombardment", {});
 satelite.create(prov(() => new JavaAdapter(HoverUnit, {
@@ -50,7 +51,9 @@ satelite.create(prov(() => new JavaAdapter(HoverUnit, {
         
         vec.trns(0, 0, 4);
         Calls.createBullet(deffst, this.getTeam(), this.x, this.y + vec.y, this.rotation, (1 - 0.2) + Mathf.random(0.2), 104);
-        kitty-concept-art-orbitalblast.at(this.x, this.y, Mathf.random(0.8,1,2));
+        
+        boomboom.play(0.75)
+        boomboom.at(this.x, this.y, Mathf.random(0.9,1,1));
         
         //shoot effect
         /*Draw.color(Color.valueOf("eba313"), Color.valueOf("f28a2e"), Color.valueOf("696969"));
