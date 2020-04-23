@@ -41,7 +41,7 @@ const satelite = extendContent(UnitType, "bombardment", {
 satelite.create(prov(() => new JavaAdapter(HoverUnit, {
   onDeath(){
     this.super$onDeath();
-    for(var yes = 0; yes < 360; yes += 18){
+    for(var yes = 0; yes < 360; yes += 5){
       vec.trns(0, 0, -4);
       Calls.createBullet(deffst, this.getTeam(), this.x, this.y + vec.y, yes + Mathf.random(-10,10), (0.8) + Mathf.random(0.2), 104);
     }
