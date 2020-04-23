@@ -1,4 +1,3 @@
-var shots = 0;
 const vec = new Vec2();
 
 const deffst = extend(MissileBulletType, {})
@@ -19,14 +18,16 @@ deffst.hitEffect = Fx.flakExplosionBig;
 deffst.lifetime = 104; //About 50 blocks travel distancthis.
 
 const satelite = extendContent(UnitType, "bombardment", {
+  var shots = 0;
   update(){
-    if(shooter.getTimer().get(shooter.getShootTimer(left), reload)){
+		this.super$update();
+    if(this.getShootTimer(true) ==0){
       shots ++;
       if(shots > 3){
         shots = 0;
         
         vec.trns(0, 0, 4);
-        Calls.createBullet(deffst, this.getTeam(), this.x + Tmp.v1.x, this.y + Tmp.v1.y, this.rot, (1 - velocityRnd) + Mathf.random(velocityRnd), 104);
+        Calls.createBullet(deffst, this.getTeam(), this.x, this.y + vec.y, this.rot, (1 - 0.2) + Mathf.random(0.2), 104);
         
         //shoot effect
         Draw.color(Color.valueOf("eba313"), Color.valueOf("f28a2e"), Color.valueOf("696969"), this.fin());

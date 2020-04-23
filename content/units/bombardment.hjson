@@ -10,7 +10,7 @@ mass: 30
 hitsize: 56
 flying: true
 rotateWeapon: false
-engineOffset: 40
+engineOffset: 36
 engineSize: 7.5
 rotatespeed: 0.05
 baseRotateSpeed: 0.02
