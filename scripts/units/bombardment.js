@@ -44,7 +44,7 @@ const flamingdebris = newEffect(45, e => {
     Angles.randLenVectors(e.id, 6, -10 + 40 * e.fout(), e.rotation, 360 * e.fout(),d);
 });
 const deathblast = extend(ArtilleryBulletType,{})
-deathblast.bulletSprite = "shell";
+deathblast.bulletSprite = "kitty-concept-art-none";
 deathblast.frontColor = Color.valueOf("f8ad42");
 deathblast.backColor = Color.valueOf("f68021");
 deathblast.trailColor = Color.valueOf("d06b53");
