@@ -45,10 +45,10 @@ satelite.create(prov(() => new JavaAdapter(HoverUnit, {
   },
   behavior(){
 		this.super$behavior();
-    t++;
-    var pewpew = t % shooty
-    if(pewpew == 0){
-      shooty = Mathf.random(90, 150)
+    
+    if(t++ >= shooty){
+      shooty = Mathf.random(90, 150);
+      t = 0;
       
       vec.trns(0, 0, 4);
       Calls.createBullet(deffst, this.getTeam(), this.x, this.y + vec.y, this.rotation, (1 - 0.2) + Mathf.random(0.2), 104);
