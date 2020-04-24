@@ -1,5 +1,6 @@
 const vec = new Vec2();
 var t = 1;
+var shooty = 120;
 
 //effect yoinked from z0mbiesrock/Diamond-Ore
 const flammen = newEffect(45, e => {
@@ -44,8 +45,10 @@ satelite.create(prov(() => new JavaAdapter(HoverUnit, {
   },
   behavior(){
 		this.super$behavior();
-    if(++t >= 120){
-      t = 1;
+    t++;
+    var pewpew = t % shooty
+    if(pewpew = 0){
+      shooty = Mathf.random(90, 150)
       
       vec.trns(0, 0, 4);
       Calls.createBullet(deffst, this.getTeam(), this.x, this.y + vec.y, this.rotation, (1 - 0.2) + Mathf.random(0.2), 104);
