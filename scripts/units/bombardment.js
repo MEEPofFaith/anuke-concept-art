@@ -50,10 +50,10 @@ deathblast.backColor = Color.valueOf("f68021");
 deathblast.trailColor = Color.valueOf("d06b53");
 deathblast.trailEffect = flamingdebris;
 deathblast.speed = 3.9;
-deathblast.damage = 450;
+deathblast.damage = 1000;
 deathblast.drag = -0.05;
 deathblast.splashDamageRadius = 40;
-deathblast.splashDamage = 420;
+deathblast.splashDamage = 980;
 deathblast.bulletWidth = 16;
 deathblast.bulletHeight = 20;
 deathblast.bulletShrink = 0;
@@ -70,7 +70,7 @@ const satelite = extendContent(UnitType, "bombardment", {});
 satelite.create(prov(() => new JavaAdapter(HoverUnit, {
   onDeath(){
     this.super$onDeath();
-    for(var yes = 0; yes < 720; yes ++){
+    for(var yes = 0; yes < 360; yes += 2){
       vec.trns(0, 0, -4);
       Calls.createBullet(deathblast, this.getTeam(), this.x, this.y + vec.y, yes + Mathf.random(-10,10), (0.8) + Mathf.random(0.2), 104);
     }
