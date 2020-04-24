@@ -46,8 +46,8 @@ satelite.create(prov(() => new JavaAdapter(HoverUnit, {
   behavior(){
 		this.super$behavior();
     t++;
-    var pewpew = t % shooty
-    if(pewpew = 0){
+    
+    if(t % shooty == 0){
       shooty = Mathf.random(90, 150)
       
       vec.trns(0, 0, 4);
