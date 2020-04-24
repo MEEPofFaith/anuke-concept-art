@@ -30,8 +30,8 @@ weapon: {
   shootSound: missile
   bullet: {
     type: MissileBulletType
+    bulletSprite: missile
     trailColor: eba313
-    bulletSprite: shell
     frontColor: f8ad42
     backColor: f68021
     trailColor: d06b53
