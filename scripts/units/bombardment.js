@@ -6,7 +6,7 @@ var shooty = 120;
 const flammen = newEffect(45, e => {
 	Draw.color(Color.valueOf("#ffffff"), Color.valueOf("#e68b02"), e.fin());
     const d = new Floatc2({get(x, y){
-    Fill.circle(e.x + x, e.y + y, 0.25 + e.fin() * 3);
+    Fill.circle(e.x + x, e.y + y, 0.25 + e.fin() * 5);
     }})
     Angles.randLenVectors(e.id, 6, -10 + 40 * e.fin(), e.rotation + 180, 360 * e.fin(),d);
 	Draw.color(Color.valueOf("#ffffff"), Color.valueOf("#e68b02"), e.fout());
@@ -37,7 +37,7 @@ deffst.collidesAir = true;
 const flamingdebris = newEffect(45, e => {
 	Draw.color(Color.valueOf("#ffffff"), Color.valueOf("#e68b02"), e.fin());
     const d = new Floatc2({get(x, y){
-    Fill.circle(e.x + x, e.y + y, 0.25 + e.fin() * 0.5);
+    Fill.circle(e.x + x, e.y + y, 0.25 + e.fin() * 2);
     }})
     Angles.randLenVectors(e.id, 6, -10 + 40 * e.fin(), e.rotation + 180, 360 * e.fin(),d);
 	Draw.color(Color.valueOf("#ffffff"), Color.valueOf("#e68b02"), e.fout());
