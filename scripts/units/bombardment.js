@@ -9,7 +9,6 @@ const shipTrail = newEffect(24, e => {
 	
 	Draw.blend(Blending.additive);
 	Draw.color(Color.valueOf("722a18"), Color.valueOf("36080230"), e.fin());
-  Angles.randLenVectors(e.id, 6, -10 + 40 * e.fin(), e.rotation + 180, 360 * e.fin(),d);
 	Draw.rect(lightRegion, e.x, e.y, e.rotation - 90);
 	Draw.blend();
   
