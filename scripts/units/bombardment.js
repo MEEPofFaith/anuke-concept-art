@@ -27,7 +27,7 @@ const flammen = newEffect(15, e => {
 });
 
 const deffst = extend(ArtilleryBulletType, {})
-deffst.bulletSprite = "shell";
+deffst.bulletSprite = "missile";
 deffst.frontColor = Color.valueOf("f8ad42");
 deffst.backColor = Color.valueOf("f68021");
 deffst.trailColor = Color.valueOf("d06b53");
