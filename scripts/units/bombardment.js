@@ -15,6 +15,12 @@ const shipTrail = newEffect(45, e => {
 	//Fill.circle(e.x, e.y, (1 * e.fout()) * (e.rotation / 1.3));
 });
 
+/*const cover = newEffect(0, e=> {
+  const overhang = Core.atlas.find("kitty-concept-art-bombardment-overhang");
+  
+  Draw.rect(overhang, e.x, e.y, e.rotation - 90);
+});*/
+
 const bombardmentfire = newEffect(33, e => {
   Draw.color(Color.valueOf("eba313"), Color.valueOf("f28a2e"), Color.valueOf("696969"), e.fin());
   
@@ -112,12 +118,8 @@ satelite.create(prov(() => new JavaAdapter(HoverUnit, {
       Effects.effect(bombardmentfire, this.x + vec.x, this.y + vec.y, this.rotation);
     }
   },
-  drawOver(){
-    const overhang = Core.atlas.find("kitty-concept-art-bombardment-overhang");
-    
-    Draw.rect(overhang, e.x, e.y, e.rotation - 90);
-  }
   update(){
+    const overhang = Core.atlas.find("kitty-concept-art-bombardment-overhang");
     this.super$update();
     
     const vectA = new Vec2();
@@ -126,5 +128,7 @@ satelite.create(prov(() => new JavaAdapter(HoverUnit, {
     vectA.trns(this.velocity().angle() + 90, 0, shift * 2);
     Effects.effect(shipTrail, this.x + vectA.x + Mathf.range(1.0), this.y + vectA.y + Mathf.range(1.0), this.rotation);
     Effects.effect(cover, this.x + vectA.x + Mathf.range(1.0), this.y + vectA.y + Mathf.range(1.0), this.rotation);
+    
+    Draw.rect(overhang, this.x, this.y, this.rotation - 90);
   }
 })));
