@@ -15,20 +15,6 @@ const shipTrail = newEffect(45, e => {
 	//Fill.circle(e.x, e.y, (1 * e.fout()) * (e.rotation / 1.3));
 });
 
-/*const cover = newEffect(0, e=> {
-  const overhang = Core.atlas.find("kitty-concept-art-bombardment-overhang");
-  
-  Draw.rect(overhang, e.x, e.y, e.rotation - 90);
-});*/
-
-const bombardmentfire = newEffect(33, e => {
-  Draw.color(Color.valueOf("eba313"), Color.valueOf("f28a2e"), Color.valueOf("696969"), e.fin());
-  
-  Angles.randLenVectors(e.id, 10, e.finpow() * 70, e.rotation, 10, (x, y) => {
-    Fill.circle(e.x + x, e.y + y, 0.65 + e.fout() * 1.6);
-  });
-});
-
 //effect yoinked from z0mbiesrock/Diamond-Ore
 const flammen = newEffect(45, e => {
 	Draw.color(Color.valueOf("#ffffff"), Color.valueOf("#e68b02"), e.fin());
@@ -113,9 +99,6 @@ satelite.create(prov(() => new JavaAdapter(HoverUnit, {
       
       vec.trns(0, 0, 4);
       Calls.createBullet(deffst, this.getTeam(), this.x, this.y + vec.y, this.rotation, (1 - 0.2) + Mathf.random(0.2), 104);
-      
-      //shoot effect
-      Effects.effect(bombardmentfire, this.x + vec.x, this.y + vec.y, this.rotation);
     }
   },
   update(){
