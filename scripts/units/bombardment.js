@@ -83,11 +83,6 @@ const satelite = extendContent(UnitType, "bombardment", {});
 satelite.engineOffset = 36
 satelite.engineSize = 7.5;
 satelite.create(prov(() => new JavaAdapter(HoverUnit, {
-  generateIcons: function(){
-    return [
-      Core.atlas.find("exotic-mod-bombardment-icon")
-    ];
-  },
   onDeath(){
     this.super$onDeath();
     for(var yes = 0; yes < 360; yes += 2){
