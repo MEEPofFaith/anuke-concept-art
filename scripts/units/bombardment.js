@@ -127,7 +127,6 @@ satelite.create(prov(() => new JavaAdapter(HoverUnit, {
     
     vectA.trns(this.velocity().angle() + 90, 0, shift * 2);
     Effects.effect(shipTrail, this.x + vectA.x + Mathf.range(1.0), this.y + vectA.y + Mathf.range(1.0), this.rotation);
-    Effects.effect(overhang, this.x + vectA.x + Mathf.range(1.0), this.y + vectA.y + Mathf.range(1.0), this.rotation);
     
     Draw.rect(overhang, this.x, this.y, this.rotation - 90);
   }
