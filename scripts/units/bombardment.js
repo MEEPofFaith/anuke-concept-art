@@ -5,13 +5,15 @@ var shooty = 120;
 //effect yoinked from EyeofDarkness/AdvanceContent
 const shipTrail = newEffect(24, e => {
 	const lightRegion = Core.atlas.find("kitty-concept-art-bombardment-engine");
+  const overhang = Core.atlas.find("kitty-concept-art-bombardment-overhang");
 	
 	Draw.blend(Blending.additive);
 	Draw.color(Color.valueOf("722a18"), Color.valueOf("36080230"), e.fin());
   Angles.randLenVectors(e.id, 6, -10 + 40 * e.fin(), e.rotation + 180, 360 * e.fin(),d);
 	Draw.rect(lightRegion, e.x, e.y, e.rotation - 90);
 	Draw.blend();
-	
+  
+	Draw.rect(overhang, e.x, e.y, e.rotation - 90);
 	//Draw.color(Color.valueOf("ffffff"));
 	//Fill.circle(e.x, e.y, (1 * e.fout()) * (e.rotation / 1.3));
 });
@@ -108,20 +110,13 @@ satelite.create(prov(() => new JavaAdapter(HoverUnit, {
       });*/
     }
   },
-  drawUnder(){
-  },
-  drawOver(){
-    const overhang = Core.atlas.find("kitty-concept-art-bombardment-overhang");
-    Draw.rect(overhang, this.x, this.y, this.rotation - 90);
-    drawEngine();
-  },
   update(){
     this.super$update();
     
     const vectA = new Vec2();
 		const shift = Mathf.clamp(this.velocity().len(), 0, 4);
     
-    if(e.getTimer().get(5, 1)){
+    if(this.getTimer().get(5, 1)){
 			vectA.trns(e.velocity().angle() + 90, 0, shift * 2);
 			Effects.effect(shipTrail, player.x + vectA.x + Mathf.range(1.0), player.y + vectA.y + Mathf.range(1.0), player.rotation);
 		};
