@@ -10,9 +10,9 @@ shootCone: 10
 mass: 30
 hitsize: 56
 flying: true
+engineSize: 0
+engineOffset: 0
 rotateWeapon: false
-engineOffset: 36
-engineSize: 7.5
 rotatespeed: 0.05
 baseRotateSpeed: 0.02
 weaponOffsetY: 2

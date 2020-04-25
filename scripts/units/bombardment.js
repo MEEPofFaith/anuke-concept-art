@@ -2,6 +2,20 @@ const vec = new Vec2();
 var t = 1;
 var shooty = 120;
 
+//effect yoinked from EyeofDarkness/AdvanceContent
+const shipTrail = newEffect(24, e => {
+	const lightRegion = Core.atlas.find("kitty-concept-art-bombardment-engine");
+	
+	Draw.blend(Blending.additive);
+	Draw.color(Color.valueOf("722a18"), Color.valueOf("36080230"), e.fin());
+  Angles.randLenVectors(e.id, 6, -10 + 40 * e.fin(), e.rotation + 180, 360 * e.fin(),d);
+	Draw.rect(lightRegion, e.x, e.y, e.rotation - 90);
+	Draw.blend();
+	
+	//Draw.color(Color.valueOf("ffffff"));
+	//Fill.circle(e.x, e.y, (1 * e.fout()) * (e.rotation / 1.3));
+});
+
 //effect yoinked from z0mbiesrock/Diamond-Ore
 const flammen = newEffect(45, e => {
 	Draw.color(Color.valueOf("#ffffff"), Color.valueOf("#e68b02"), e.fin());
@@ -67,6 +81,8 @@ deathblast.collidesTiles = true;
 deathblast.collidesAir = true;
 
 const satelite = extendContent(UnitType, "bombardment", {});
+satelite.engineOffset = 36
+satelite.engineSize = 7.5;
 satelite.create(prov(() => new JavaAdapter(HoverUnit, {
   onDeath(){
     this.super$onDeath();
@@ -91,5 +107,23 @@ satelite.create(prov(() => new JavaAdapter(HoverUnit, {
           Fill.circle(this.x + x, this.y + y, 0.65 + this.fout() * 1.6);
       });*/
     }
+  },
+  drawUnder(){
+  },
+  drawOver(){
+    const overhang = Core.atlas.find("kitty-concept-art-bombardment-overhang");
+    Draw.rect(overhang, e.x, e.y, e.rotation - 90);
+    drawEngine();
+  },
+  update(){
+    this.super$update();
+    
+    const vectA = new Vec2();
+		const shift = Mathf.clamp(e.velocity().len(), 0, 4);
+    
+    if(e.getTimer().get(5, 1)){
+			vectA.trns(e.velocity().angle() + 90, 0, shift * 2);
+			Effects.effect(shipTrail, player.x + vectA.x + Mathf.range(1.0), player.y + vectA.y + Mathf.range(1.0), player.rotation);
+		};
   }
 })));
