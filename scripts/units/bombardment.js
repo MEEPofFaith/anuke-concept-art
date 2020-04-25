@@ -83,6 +83,11 @@ const satelite = extendContent(UnitType, "bombardment", {});
 satelite.engineOffset = 36
 satelite.engineSize = 7.5;
 satelite.create(prov(() => new JavaAdapter(HoverUnit, {
+  generateIcons: function(){
+    return [
+      Core.atlas.find("exotic-mod-bombardment-icon")
+    ];
+  },
   onDeath(){
     this.super$onDeath();
     for(var yes = 0; yes < 360; yes += 2){
@@ -102,7 +107,6 @@ satelite.create(prov(() => new JavaAdapter(HoverUnit, {
     }
   },
   update(){
-    const overhang = Core.atlas.find("kitty-concept-art-bombardment-overhang");
     this.super$update();
     
     const vectA = new Vec2();
@@ -110,7 +114,5 @@ satelite.create(prov(() => new JavaAdapter(HoverUnit, {
     
     vectA.trns(this.velocity().angle() + 90, 0, shift * 2);
     Effects.effect(shipTrail, this.x + vectA.x + Mathf.range(1.0), this.y + vectA.y + Mathf.range(1.0), this.rotation);
-    
-    Draw.rect(overhang, this.x, this.y, this.rotation - 90);
   }
 })));
