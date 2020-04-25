@@ -24,7 +24,7 @@ const shipTrail = newEffect(45, e => {
 const bombardmentfire = newEffect(33, e => {
   Draw.color(Color.valueOf("eba313"), Color.valueOf("f28a2e"), Color.valueOf("696969"), e.fin());
   
-  Angles.randLenVectors(e.id, 10, e.finpow() * 70, e.rotation, 10, (x, y) -> {
+  Angles.randLenVectors(e.id, 10, e.finpow() * 70, e.rotation, 10, (x, y) +> {
     Fill.circle(e.x + x, e.y + y, 0.65 + e.fout() * 1.6);
   });
 });
