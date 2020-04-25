@@ -3,7 +3,7 @@ var t = 1;
 var shooty = 120;
 
 //effect yoinked from EyeofDarkness/AdvanceContent
-const shipTrail = newEffect(45, e => {
+const shipTrail = newEffect(90, e => {
 	const lightRegion = Core.atlas.find("kitty-concept-art-bombardment-engine");
 	
 	Draw.blend(Blending.additive);
@@ -16,7 +16,7 @@ const shipTrail = newEffect(45, e => {
 });
 
 //effect yoinked from z0mbiesrock/Diamond-Ore
-const flammen = newEffect(45, e => {
+const flammen = newEffect(15, e => {
 	Draw.color(Color.valueOf("#ffffff"), Color.valueOf("#e68b02"), e.fin());
     const d = new Floatc2({get(x, y){
     Fill.circle(e.x + x, e.y + y, 0.25 + e.fin() * 5);
@@ -25,6 +25,7 @@ const flammen = newEffect(45, e => {
 	Draw.color(Color.valueOf("#ffffff"), Color.valueOf("#e68b02"), e.fout());
     Angles.randLenVectors(e.id, 6, -10 + 40 * e.fout(), e.rotation, 360 * e.fout(),d);
 });
+
 const deffst = extend(ArtilleryBulletType, {})
 deffst.bulletSprite = "shell";
 deffst.frontColor = Color.valueOf("f8ad42");
