@@ -117,6 +117,6 @@ satelite.create(prov(() => new JavaAdapter(HoverUnit, {
 		const shift = Mathf.clamp(this.velocity().len(), 0, 4);
     
     vectA.trns(this.velocity().angle() + 90, 0, shift * 2);
-    Effects.effect(shipTrail, player.x + vectA.x + Mathf.range(1.0), player.y + vectA.y + Mathf.range(1.0), player.rotation);
+    Effects.effect(shipTrail, this.x + vectA.x + Mathf.range(1.0), this.y + vectA.y + Mathf.range(1.0), this.rotation);
   }
 })));
