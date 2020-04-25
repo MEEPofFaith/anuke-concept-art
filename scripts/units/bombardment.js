@@ -112,14 +112,14 @@ satelite.create(prov(() => new JavaAdapter(HoverUnit, {
   },
   drawOver(){
     const overhang = Core.atlas.find("kitty-concept-art-bombardment-overhang");
-    Draw.rect(overhang, e.x, e.y, e.rotation - 90);
+    Draw.rect(overhang, this.x, this.y, this.rotation - 90);
     drawEngine();
   },
   update(){
     this.super$update();
     
     const vectA = new Vec2();
-		const shift = Mathf.clamp(e.velocity().len(), 0, 4);
+		const shift = Mathf.clamp(this.velocity().len(), 0, 4);
     
     if(e.getTimer().get(5, 1)){
 			vectA.trns(e.velocity().angle() + 90, 0, shift * 2);
