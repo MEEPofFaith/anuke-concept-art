@@ -16,7 +16,7 @@ const shipTrail = newEffect(90, e => {
 });
 
 //effect yoinked from z0mbiesrock/Diamond-Ore
-const flammen = newEffect(15, e => {
+const flammen = newEffect(45, e => {
 	Draw.color(Color.valueOf("#ffffff"), Color.valueOf("#e68b02"), e.fin());
     const d = new Floatc2({get(x, y){
     Fill.circle(e.x + x, e.y + y, 0.25 + e.fin() * 5);
@@ -48,7 +48,7 @@ deffst.collides = true;
 deffst.collidesTiles = true;
 deffst.collidesAir = true;
 
-const flamingdebris = newEffect(45, e => {
+const flamingdebris = newEffect(15, e => {
 	Draw.color(Color.valueOf("#ffffff"), Color.valueOf("#e68b02"), e.fin());
     const d = new Floatc2({get(x, y){
     Fill.circle(e.x + x, e.y + y, 0.25 + e.fin() * 2);
@@ -94,12 +94,14 @@ satelite.create(prov(() => new JavaAdapter(HoverUnit, {
   behavior(){
 		this.super$behavior();
     
-    if(t++ >= shooty){
-      shooty = Mathf.random(90, 150);
-      t = 0;
-      
-      vec.trns(0, 0, 4);
-      Calls.createBullet(deffst, this.getTeam(), this.x, this.y + vec.y, this.rotation, (1 - 0.2) + Mathf.random(0.2), 104);
+    if(this.target != null){
+      if(t++ >= shooty){
+        shooty = Mathf.random(60, 180);
+        t = 0;
+        
+        vec.trns(0, 0, 4);
+        Calls.createBullet(deffst, this.getTeam(), this.x, this.y + vec.y, this.rotation, (1 - 0.2) + Mathf.random(0.2), 104);
+      }
     }
   },
   update(){
