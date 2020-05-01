@@ -48,7 +48,7 @@ const deffstBoom = newEffect(30, e => {
     Lines.lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), 1.0 + e.fout() * 4 * (3.0 + intensity));
   }})
   
-  Angles.randLenVectors(e.id + 1, e.finpow(), (9 * intensity), 40.0 * intensity, 360 * e.fin(), l);
+  Angles.randLenVectors(e.id + 1, e.finpow(), 9 * intensity, 40.0 * intensity, 360 * e.fin(), l);
 });
 
 const deffst = extend(ArtilleryBulletType, {})
