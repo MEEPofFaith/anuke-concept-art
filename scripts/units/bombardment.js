@@ -28,10 +28,8 @@ const flammen = newEffect(45, e => {
 const deffstBoom = newEffect(30, e => {
   var intensity = 15;
 
-  e.scaled(5 + intensity * 2, i => {
-    Lines.stroke(3.1 * i.fout());
-    Lines.circle(e.x, e.y, (3.0 + i.fin() * 14.0) * intensity);
-  });
+  Lines.stroke(e.fout() * 3.1);
+  Lines.circle(e.x, e.y, (3.0 + e.fin() * 14.0) * intensity);
 
   Draw.color(Color.gray);
   const c = new Floatc2({get(x, y){
