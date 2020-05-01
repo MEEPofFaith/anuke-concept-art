@@ -25,26 +25,26 @@ const flammen = newEffect(45, e => {
 	Draw.color(Color.valueOf("#ffffff"), Color.valueOf("#e68b02"), e.fout());
     Angles.randLenVectors(e.id, 6, -10 + 40 * e.fout(), e.rotation, 360 * e.fout(),d);
 });
-dynamicExplosion = new Effect(30, e -> {
+deffstBoom = new Effect(30, e => {
   const intensity = 15;
 
-  e.scaled(5 + intensity * 2, i -> {
-    stroke(3.1f * i.fout());
-    Lines.circle(e.x, e.y, (3f + i.fin() * 14f) * intensity);
+  e.scaled(5 + intensity * 2, i => {
+    stroke(3.1 * i.fout());
+    Lines.circle(e.x, e.y, (3.0 + i.fin() * 14.0) * intensity);
   });
 
   color(Color.gray);
 
-  randLenVectors(e.id, e.finpow(), (int)(6 * intensity), 21f * intensity, (x, y, in, out) -> {
-    Fill.circle(e.x + x, e.y + y, out * (2f + intensity) * 3 + 0.5f);
-    Fill.circle(e.x + x / 2f, e.y + y / 2f, out * (intensity) * 3);
+  randLenVectors(e.id, e.finpow(), (int)(6 * intensity), 21.0 * intensity, (x, y, in, out) => {
+    Fill.circle(e.x + x, e.y + y, out * (2.0 + intensity) * 3 + 0.5);
+    Fill.circle(e.x + x / 2.0, e.y + y / 2.0, out * (intensity) * 3);
   });
 
   color(Pal.lighterOrange, Pal.lightOrange, Color.gray, e.fin());
-  stroke((1.7f * e.fout()) * (1f + (intensity - 1f) / 2f));
+  stroke((1.7.0 * e.fout()) * (1.0 + (intensity - 1.0) / 2.0));
 
-  randLenVectors(e.id + 1, e.finpow(), (int)(9 * intensity), 40f * intensity, (x, y, in, out) -> {
-    lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), 1f + out * 4 * (3f + intensity));
+  randLenVectors(e.id + 1, e.finpow(), (int)(9 * intensity), 40.0 * intensity, (x, y, in, out) => {
+    lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), 1.0 + out * 4 * (3.0 + intensity));
   });
 });
 
@@ -63,8 +63,8 @@ deffst.bulletWidth = 32;
 deffst.bulletHeight = 36;
 deffst.bulletShrink = 0;
 deffst.keepVelocity = false;
-deffst.despawnEffect = Fx.flakExplosionBig;
-deffst.hitEffect = Fx.flakExplosionBig;
+deffst.despawnEffect = deffstBoom;
+deffst.hitEffect = deffstBoom;
 deffst.lifetime = 62; //About 30 blocks travel distance.
 deffst.homingPower = 0.1;
 deffst.homingRadius = 80;
