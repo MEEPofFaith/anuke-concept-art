@@ -43,7 +43,9 @@ deffst.bulletShrink = 0;
 deffst.keepVelocity = false;
 deffst.despawnEffect = Fx.flakExplosionBig;
 deffst.hitEffect = Fx.flakExplosionBig;
-deffst.lifetime = 62; //About 30 blocks travel distancthis.
+deffst.lifetime = 62; //About 30 blocks travel distance.
+deffst.homingPower = 0.1;
+deffst.homingRadius = 80;
 deffst.collides = true;
 deffst.collidesTiles = true;
 deffst.collidesAir = true;
@@ -63,11 +65,11 @@ deathblast.frontColor = Color.valueOf("f8ad42");
 deathblast.backColor = Color.valueOf("f68021");
 deathblast.trailColor = Color.valueOf("d06b53");
 deathblast.trailEffect = flamingdebris;
-deathblast.speed = 3.9;
-deathblast.damage = 1000;
+deathblast.speed = 2.5;
+deathblast.damage = 500;
 deathblast.drag = -0.05;
 deathblast.splashDamageRadius = 40;
-deathblast.splashDamage = 980;
+deathblast.splashDamage = 480;
 deathblast.bulletWidth = 16;
 deathblast.bulletHeight = 20;
 deathblast.bulletShrink = 0;
@@ -86,9 +88,9 @@ satelite.engineSize = 7.5;
 satelite.create(prov(() => new JavaAdapter(HoverUnit, {
   onDeath(){
     this.super$onDeath();
-    for(var yes = 0; yes < 360; yes += 2){
+    for(var yes = 0; yes < 360; yes += 5){
       vec.trns(0, 0, -4);
-      Calls.createBullet(deathblast, this.getTeam(), this.x, this.y + vec.y, yes + Mathf.random(-10,10), (0.8) + Mathf.random(0.2), 104);
+      Calls.createBullet(deathblast, this.getTeam(), this.x, this.y + vec.y, yes + Mathf.random(-10,10), 1, 104);
     }
   },
   behavior(){

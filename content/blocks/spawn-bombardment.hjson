@@ -2,7 +2,7 @@ type: UnitFactory
 localizedName: Bombardment Spawner
 description: Spawns a single Bombardment for free.
 health: 10000
-produceTime: 1
+produceTime: 60
 maxSpawn: 1
 hasPower: false
 consumes: {

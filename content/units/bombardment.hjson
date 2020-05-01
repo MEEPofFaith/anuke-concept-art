@@ -49,5 +49,7 @@ weapon: {
     hitEffect: blastExplosion
     despawnEffect: blastExplosion
     lifetime: 100
+    homingPower: 0.1
+    homingRadius: 48
   }
 }
