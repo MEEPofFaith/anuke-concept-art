@@ -31,18 +31,16 @@ const deffstBoom = newEffect(30, e => {
   Lines.stroke(e.fout() * 3.1);
   Lines.circle(e.x, e.y, (3.0 + e.fin() * 14.0) * intensity);
 
+  Draw.color(Color.gray);
   const c = new Floatc2({get(x, y){
-    var intensity = 5;
-    Draw.color(Color.gray);
     Fill.circle(e.x + x, e.y + y, e.fout() * (2.0 + intensity) * 3 + 0.5);
     Fill.circle(e.x + x / 2.0, e.y + y / 2.0, e.fout() * (intensity) * 3);
   }})
   
   Angles.randLenVectors(e.id, e.finpow(), (6 * intensity), 21.0 * intensity, 360 * e.fin(), c);
   
+  Draw.color(Pal.lighterOrange, Pal.lightOrange, Color.gray, e.fin());
   const l = new Floatc2({get(x, y){
-    var intensity = 5;
-    Draw.color(Pal.lighterOrange, Pal.lightOrange, Color.gray, e.fin());
     Lines.stroke((1.7 * e.fout()) * (1.0 + (intensity - 1.0) / 2.0));
     Lines.lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), 1.0 + e.fout() * 4 * (3.0 + intensity));
   }})
