@@ -35,7 +35,7 @@ deffstBoom = new Effect(30, e => {
 
   Draw.color(Color.gray);
 
-  Angles.randLenVectors(e.id, e.finpow(), (6 * intensity), 21.0 * intensity, (x, y, in, out) => {
+  Angles.randLenVectors(e.id, e.finpow(), (6 * intensity), 21.0 * intensity, prov(x,y,in,out) => {
     Fill.circle(e.x + x, e.y + y, out * (2.0 + intensity) * 3 + 0.5);
     Fill.circle(e.x + x / 2.0, e.y + y / 2.0, out * (intensity) * 3);
   });
@@ -43,7 +43,7 @@ deffstBoom = new Effect(30, e => {
   Draw.color(Pal.lighterOrange, Pal.lightOrange, Color.gray, e.fin());
   Lines.stroke((1.7.0 * e.fout()) * (1.0 + (intensity - 1.0) / 2.0));
 
-  Angles.randLenVectors(e.id + 1, e.finpow(), (9 * intensity), 40.0 * intensity, (x, y, in, out) => {
+  Angles.randLenVectors(e.id + 1, e.finpow(), (9 * intensity), 40.0 * intensity, prov(x,y,in,out) => {
     lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), 1.0 + out * 4 * (3.0 + intensity));
   });
 });
