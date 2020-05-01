@@ -25,6 +25,28 @@ const flammen = newEffect(45, e => {
 	Draw.color(Color.valueOf("#ffffff"), Color.valueOf("#e68b02"), e.fout());
     Angles.randLenVectors(e.id, 6, -10 + 40 * e.fout(), e.rotation, 360 * e.fout(),d);
 });
+dynamicExplosion = new Effect(30, e -> {
+  const intensity = 15;
+
+  e.scaled(5 + intensity * 2, i -> {
+    stroke(3.1f * i.fout());
+    Lines.circle(e.x, e.y, (3f + i.fin() * 14f) * intensity);
+  });
+
+  color(Color.gray);
+
+  randLenVectors(e.id, e.finpow(), (int)(6 * intensity), 21f * intensity, (x, y, in, out) -> {
+    Fill.circle(e.x + x, e.y + y, out * (2f + intensity) * 3 + 0.5f);
+    Fill.circle(e.x + x / 2f, e.y + y / 2f, out * (intensity) * 3);
+  });
+
+  color(Pal.lighterOrange, Pal.lightOrange, Color.gray, e.fin());
+  stroke((1.7f * e.fout()) * (1f + (intensity - 1f) / 2f));
+
+  randLenVectors(e.id + 1, e.finpow(), (int)(9 * intensity), 40f * intensity, (x, y, in, out) -> {
+    lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), 1f + out * 4 * (3f + intensity));
+  });
+});
 
 const deffst = extend(ArtilleryBulletType, {})
 deffst.bulletSprite = "missile";
