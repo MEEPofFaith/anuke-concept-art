@@ -26,7 +26,7 @@ const flammen = newEffect(45, e => {
   Angles.randLenVectors(e.id, 6, -10 + 40 * e.fout(), e.rotation, 360 * e.fout(),d);
 });
 const deffstBoom = newEffect(30, e => {
-  var intensity = 1;
+  var intensity = 8;
 
   Lines.stroke(e.fout() * 3.1);
   Lines.circle(e.x, e.y, (3.0 + e.fin() * 14.0) * intensity);
@@ -55,10 +55,10 @@ deffst.backColor = Color.valueOf("f68021");
 deffst.trailColor = Color.valueOf("d06b53");
 deffst.trailEffect = flammen;
 deffst.speed = 3.9;
-deffst.damage = 150;
+deffst.damage = 350;
 deffst.drag = -0.05;
 deffst.splashDamageRadius = 120;
-deffst.splashDamage = 750;
+deffst.splashDamage = 900;
 deffst.bulletWidth = 32;
 deffst.bulletHeight = 36;
 deffst.bulletShrink = 0;
@@ -88,10 +88,10 @@ deathblast.backColor = Color.valueOf("f68021");
 deathblast.trailColor = Color.valueOf("d06b53");
 deathblast.trailEffect = flamingdebris;
 deathblast.speed = 2.5;
-deathblast.damage = 25;
+deathblast.damage = 100;
 deathblast.drag = -0.05;
 deathblast.splashDamageRadius = 40;
-deathblast.splashDamage = 100;
+deathblast.splashDamage = 200;
 deathblast.bulletWidth = 16;
 deathblast.bulletHeight = 20;
 deathblast.bulletShrink = 0;
