@@ -25,7 +25,7 @@ const flammen = newEffect(45, e => {
 	Draw.color(Color.valueOf("#ffffff"), Color.valueOf("#e68b02"), e.fout());
   Angles.randLenVectors(e.id, 6, -10 + 40 * e.fout(), e.rotation, 360 * e.fout(),d);
 });
-const deffstBoom = new Effect(30, e => {
+const deffstBoom = newEffect(30, e => {
   var intensity = 15;
 
   e.scaled(5 + intensity * 2, i => {
