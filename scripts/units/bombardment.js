@@ -90,7 +90,7 @@ satelite.create(prov(() => new JavaAdapter(HoverUnit, {
     this.super$onDeath();
     for(var yes = 0; yes < 360; yes += 5){
       vec.trns(0, 0, -4);
-      Calls.createBullet(deathblast, this.getTeam(), this.x, this.y + vec.y, yes + Mathf.random(-10,10), 1, 104);
+      Calls.createBullet(deathblast, this.getTeam(), this.x, this.y + vec.y, yes, 1, 104);
     }
   },
   behavior(){
