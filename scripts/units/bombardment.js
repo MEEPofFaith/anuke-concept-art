@@ -33,10 +33,10 @@ deffst.backColor = Color.valueOf("f68021");
 deffst.trailColor = Color.valueOf("d06b53");
 deffst.trailEffect = flammen;
 deffst.speed = 3.9;
-deffst.damage = 1500;
+deffst.damage = 150;
 deffst.drag = -0.05;
 deffst.splashDamageRadius = 120;
-deffst.splashDamage = 1450;
+deffst.splashDamage = 750;
 deffst.bulletWidth = 32;
 deffst.bulletHeight = 36;
 deffst.bulletShrink = 0;
@@ -66,10 +66,10 @@ deathblast.backColor = Color.valueOf("f68021");
 deathblast.trailColor = Color.valueOf("d06b53");
 deathblast.trailEffect = flamingdebris;
 deathblast.speed = 2.5;
-deathblast.damage = 100;
+deathblast.damage = 25;
 deathblast.drag = -0.05;
 deathblast.splashDamageRadius = 40;
-deathblast.splashDamage = 96;
+deathblast.splashDamage = 100;
 deathblast.bulletWidth = 16;
 deathblast.bulletHeight = 20;
 deathblast.bulletShrink = 0;
@@ -112,7 +112,7 @@ satelite.create(prov(() => new JavaAdapter(HoverUnit, {
     const vectA = new Vec2();
 		const shift = Mathf.clamp(this.velocity().len(), 0, 4);
     
-    vectA.trns(this.velocity().angle() + 90, 0, shift * 2);
-    Effects.effect(shipTrail, this.x + vectA.x + Mathf.range(1.0), this.y + vectA.y + Mathf.range(1.0), this.rotation);
+    vectA.trns(this.velocity().angle() + 90, 0 + Mathf.range(-0.1, 0.1), shift * 2 + Mathf.range(-0, 0.5));
+    Effects.effect(shipTrail, this.x + vectA.x, this.y + vectA.y, this.rotation);
   }
 })));
