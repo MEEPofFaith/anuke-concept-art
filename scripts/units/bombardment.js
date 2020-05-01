@@ -26,7 +26,7 @@ const flammen = newEffect(45, e => {
   Angles.randLenVectors(e.id, 6, -10 + 40 * e.fout(), e.rotation, 360 * e.fout(),d);
 });
 const deffstBoom = newEffect(30, e => {
-  var intensity = 8;
+  const intensity = 5;
 
   Lines.stroke(e.fout() * 3.1);
   Lines.circle(e.x, e.y, (3.0 + e.fin() * 14.0) * intensity);
@@ -91,7 +91,7 @@ deathblast.speed = 2.5;
 deathblast.damage = 100;
 deathblast.drag = -0.05;
 deathblast.splashDamageRadius = 40;
-deathblast.splashDamage = 200;
+deathblast.splashDamage = 150;
 deathblast.bulletWidth = 16;
 deathblast.bulletHeight = 20;
 deathblast.bulletShrink = 0;
