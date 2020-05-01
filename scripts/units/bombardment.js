@@ -42,7 +42,7 @@ const deffstBoom = newEffect(30, e => {
   const l = new Floatc2({get(x, y){
     Draw.color(Pal.lighterOrange, Pal.lightOrange, Color.gray, e.fin());
     Lines.stroke((1.7 * e.fout()) * (1.0 + (intensity - 1.0) / 2.0));
-    lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), 1.0 + e.fout() * 4 * (3.0 + intensity));
+    Lines.lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), 1.0 + e.fout() * 4 * (3.0 + intensity));
   }})
   
   Angles.randLenVectors(e.id + 1, e.finpow(), (9 * intensity), 40.0 * intensity, 360 * e.fin(), l);
