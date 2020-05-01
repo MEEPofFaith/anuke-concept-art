@@ -18,15 +18,15 @@ const shipTrail = newEffect(90, e => {
 //effect yoinked from z0mbiesrock/Diamond-Ore
 const flammen = newEffect(45, e => {
 	Draw.color(Color.valueOf("#ffffff"), Color.valueOf("#e68b02"), e.fin());
-    const d = new Floatc2({get(x, y){
+  const d = new Floatc2({get(x, y){
     Fill.circle(e.x + x, e.y + y, 0.25 + e.fin() * 5);
-    }})
-    Angles.randLenVectors(e.id, 6, -10 + 40 * e.fin(), e.rotation + 180, 360 * e.fin(),d);
+  }})
+  Angles.randLenVectors(e.id, 6, -10 + 40 * e.fin(), e.rotation + 180, 360 * e.fin(),d);
 	Draw.color(Color.valueOf("#ffffff"), Color.valueOf("#e68b02"), e.fout());
-    Angles.randLenVectors(e.id, 6, -10 + 40 * e.fout(), e.rotation, 360 * e.fout(),d);
+  Angles.randLenVectors(e.id, 6, -10 + 40 * e.fout(), e.rotation, 360 * e.fout(),d);
 });
 deffstBoom = new Effect(30, e => {
-  const intensity = 15;
+  var intensity = 15;
 
   e.scaled(5 + intensity * 2, i => {
     Lines.stroke(3.1 * i.fout());
@@ -74,12 +74,12 @@ deffst.collidesAir = true;
 
 const flamingdebris = newEffect(15, e => {
 	Draw.color(Color.valueOf("#ffffff"), Color.valueOf("#e68b02"), e.fin());
-    const d = new Floatc2({get(x, y){
+  const d = new Floatc2({get(x, y){
     Fill.circle(e.x + x, e.y + y, 0.25 + e.fin() * 2);
-    }})
-    Angles.randLenVectors(e.id, 6, -10 + 40 * e.fin(), e.rotation + 180, 360 * e.fin(),d);
+  }})
+  Angles.randLenVectors(e.id, 6, -10 + 40 * e.fin(), e.rotation + 180, 360 * e.fin(),d);
 	Draw.color(Color.valueOf("#ffffff"), Color.valueOf("#e68b02"), e.fout());
-    Angles.randLenVectors(e.id, 6, -10 + 40 * e.fout(), e.rotation, 360 * e.fout(),d);
+  Angles.randLenVectors(e.id, 6, -10 + 40 * e.fout(), e.rotation, 360 * e.fout(),d);
 });
 const deathblast = extend(ArtilleryBulletType,{})
 deathblast.bulletSprite = "kitty-concept-art-none";
