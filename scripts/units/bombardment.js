@@ -26,12 +26,13 @@ const flammen = newEffect(45, e => {
   Angles.randLenVectors(e.id, 6, -10 + 40 * e.fout(), e.rotation, 360 * e.fout(),d);
 });
 const deffstBoom = newEffect(30, e => {
-  const intensity = 5;
+  let intensity = 5;
 
   Lines.stroke(e.fout() * 3.1);
   Lines.circle(e.x, e.y, (3.0 + e.fin() * 14.0) * intensity);
 
   const c = new Floatc2({get(x, y){
+    let intensity = 5;
     Draw.color(Color.gray);
     Fill.circle(e.x + x, e.y + y, e.fout() * (2.0 + intensity) * 3 + 0.5);
     Fill.circle(e.x + x / 2.0, e.y + y / 2.0, e.fout() * (intensity) * 3);
@@ -40,6 +41,7 @@ const deffstBoom = newEffect(30, e => {
   Angles.randLenVectors(e.id, e.finpow(), (6 * intensity), 21.0 * intensity, 360 * e.fin(), c);
   
   const l = new Floatc2({get(x, y){
+    let intensity = 5;
     Draw.color(Pal.lighterOrange, Pal.lightOrange, Color.gray, e.fin());
     Lines.stroke((1.7 * e.fout()) * (1.0 + (intensity - 1.0) / 2.0));
     Lines.lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), 1.0 + e.fout() * 4 * (3.0 + intensity));
@@ -55,10 +57,10 @@ deffst.backColor = Color.valueOf("f68021");
 deffst.trailColor = Color.valueOf("d06b53");
 deffst.trailEffect = flammen;
 deffst.speed = 3.9;
-deffst.damage = 350;
+deffst.damage = 150;
 deffst.drag = -0.05;
 deffst.splashDamageRadius = 120;
-deffst.splashDamage = 900;
+deffst.splashDamage = 850;
 deffst.bulletWidth = 32;
 deffst.bulletHeight = 36;
 deffst.bulletShrink = 0;
