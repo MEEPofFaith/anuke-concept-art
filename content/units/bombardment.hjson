@@ -8,7 +8,7 @@ range: 240
 attackLength: 160
 shootCone: 10
 mass: 30
-hitsize: 56
+hitsize: 48
 flying: true
 engineSize: 0
 engineOffset: 0
