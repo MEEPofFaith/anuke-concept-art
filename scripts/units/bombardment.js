@@ -100,7 +100,7 @@ deathblast.trailColor = Color.valueOf("d06b53");
 deathblast.trailEffect = flamingdebris;
 deathblast.speed = 2.5;
 deathblast.damage = 100;
-deathblast.splashDamage = 25;
+deathblast.splashDamage = 75;
 deathblast.splashDamageRadius = 4;
 deathblast.drag = -0.05;
 deathblast.bulletWidth = 16;
@@ -159,7 +159,7 @@ satelite.create(prov(() => new JavaAdapter(HoverUnit, {
     const vectA = new Vec2();
 		const shift = Mathf.clamp(this.velocity().len(), 0, 4);
     
-    vectA.trns(this.velocity().angle() + 90, 0 + Mathf.range(-1, 1), shift * 2 + Mathf.range(-0.5, 1.5));
+    vectA.trns(this.velocity().angle() + 90, 0 + Mathf.range(-0.5, 0.5), shift * 2 + Mathf.range(-0.5, 1));
     Effects.effect(shipTrail, this.x + vectA.x, this.y + vectA.y, this.rotation);
   }
 })));
