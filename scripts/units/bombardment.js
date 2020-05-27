@@ -26,11 +26,9 @@ const flammen = newEffect(45, e => {
   Angles.randLenVectors(e.id, 6, -10 + 40 * e.fout(), e.rotation, 360 * e.fout(),d);
 });
 
-const deffst = extend(ArtilleryBulletType, {
+const deffst = extend(BasicBulletType, {
   hit(b, x, y){
     if(x != null && y != null && b != null){
-      this.super$hit(b, x, y);
-      
       Sounds.explosion.at(b);
       Effects.shake(this.hitShake, this.hitShake, b);
       
@@ -39,10 +37,19 @@ const deffst = extend(ArtilleryBulletType, {
       Effects.effect(Fx.dynamicExplosion, x, y, 10);
     }
   },
+  hitTile(b, tile){
+    if(b != null && tile != null){
+      Sounds.explosion.at(b);
+      Effects.shake(this.hitShake, this.hitShake, b);
+      
+      Effects.effect(Fx.bigShockwave, b.x, b.y);
+      Effects.effect(Fx.impactcloud, b.x, b.y);
+      Effects.effect(Fx.dynamicExplosion, b.x, b.y, 10);
+    }
+  },
   despawned(b){
     if(b != null){
-      this.super$despawned(b);
-      
+      Sounds.explosion.at(b);
       Effects.effect(Fx.bigShockwave, b.x, b.y);
       Effects.effect(Fx.impactcloud, b.x, b.y);
       Effects.effect(Fx.dynamicExplosion, b.x, b.y, 10);
@@ -52,15 +59,19 @@ const deffst = extend(ArtilleryBulletType, {
     if(b != null){
       this.super$update(b);
       b.velocity().rotate(Mathf.sin(Time.time() + b.id * 4422, this.weaveScale, this.weaveMag) * Time.delta());
+      
+      if(b.timer.get(0, 3 + b.fslope() * 2)){
+        Effects.effect(this.trailEffect, this.backColor, b.x, b.y, b.fslope() * 4);
+      }
     }
   }
-})
+});
 deffst.bulletSprite = "missile";
 deffst.frontColor = Color.valueOf("f8ad42");
 deffst.backColor = Color.valueOf("f68021");
 deffst.trailColor = Color.valueOf("d06b53");
 deffst.trailEffect = flammen;
-deffst.speed = 3.9;
+deffst.speed = 5.85;
 deffst.damage = 150;
 deffst.drag = -0.05;
 deffst.splashDamageRadius = 120;
@@ -72,7 +83,7 @@ deffst.keepVelocity = true;
 deffst.despawnEffect = Fx.none;
 deffst.hitEffect = Fx.none;
 //About 30 blocks travel distance.
-deffst.lifetime = 62;
+deffst.lifetime = 93;
 deffst.homingPower = 0.1;
 deffst.homingRadius = 160;
 deffst.collides = true;
@@ -83,22 +94,12 @@ deffst.hitShake = 32;
 deffst.weaveScale = 9;
 deffst.weaveMag = 3;
 
-const flamingdebris = newEffect(8, e => {
-	Draw.color(Color.valueOf("#ffffff"), Color.valueOf("#e68b02"), e.fin());
-  const d = new Floatc2({get(x, y){
-    Fill.circle(e.x + x, e.y + y, 0.25 + e.fin() * 2);
-  }})
-  Angles.randLenVectors(e.id, 6, -10 + 40 * e.fin(), e.rotation + 180, 360 * e.fin(),d);
-	Draw.color(Color.valueOf("#ffffff"), Color.valueOf("#e68b02"), e.fout());
-  Angles.randLenVectors(e.id, 6, -10 + 40 * e.fout(), e.rotation, 360 * e.fout(),d);
-});
-const deathblast = extend(ArtilleryBulletType,{})
-deathblast.bulletSprite = "kitty-concept-art-none";
+const deathblast = extend(BasicBulletType,{});
+deathblast.bulletSprite = "none";
 deathblast.frontColor = Color.valueOf("f8ad42");
 deathblast.backColor = Color.valueOf("f68021");
 deathblast.trailColor = Color.valueOf("d06b53");
-deathblast.trailEffect = flamingdebris;
-deathblast.speed = 2.5;
+deathblast.speed = 10;
 deathblast.damage = 100;
 deathblast.splashDamage = 75;
 deathblast.splashDamageRadius = 4;
@@ -108,10 +109,10 @@ deathblast.bulletHeight = 20;
 deathblast.bulletShrink = 0;
 deathblast.drawSize = 0;
 deathblast.keepVelocity = false;
-deathblast.despawnEffect = Fx.flakExplosionBig;
-deathblast.hitEffect = Fx.flakExplosionBig;
-//About 30 blocks travel distance.
-deathblast.lifetime = 62;
+deathblast.despawnEffect = Fx.none;
+deathblast.hitEffect = Fx.none;
+//About 45 blocks travel distance.
+deathblast.lifetime = 23.25;
 deathblast.collides = true;
 deathblast.collidesTiles = true;
 deathblast.collidesAir = true;
@@ -130,26 +131,25 @@ satelite.create(prov(() => new JavaAdapter(HoverUnit, {
     Sounds.explosionbig.at(this.x, this.y);
     for(var yes = 0; yes < 360; yes ++){
       vec.trns(0, 0, -4);
-      Calls.createBullet(deathblast, this.getTeam(), this.x, this.y + vec.y, yes, 1, 104);
+      Calls.createBullet(deathblast, this.getTeam(), this.x, this.y + vec.y, yes, 1, 1);
     }
   },
   behavior(){
 		this.super$behavior();
     
-    if(this.target == null){
-      return;
-    }
     if(this.target != null){
-      if(t++ >= shooty){
-        shooty = Mathf.random(75, 165);
-        t = 0;
-        
-        vec.trns(0, 0, 8);
-        for(i = 0; i < 25; i++){
-          Effects.effect(Fx.shootPyraFlame, this.x + vec.x, this.y + vec.y, this.rotation + Mathf.range(3));
+      if(!Units.invalidateTarget(this.target, this)){
+        if(t++ >= shooty){
+          shooty = Mathf.random(75, 165);
+          t = 0;
+          
+          vec.trns(this.rotation-90, 0, 8);
+          for(i = 0; i < 25; i++){
+            Effects.effect(Fx.shootPyraFlame, this.x + vec.x, this.y + vec.y, this.rotation + Mathf.range(3));
+          }
+          Sounds.explosionbig.at(this.x + vec.x, this.y + vec.y);
+          Calls.createBullet(deffst, this.getTeam(), this.x + vec.x, this.y + vec.y, this.rotation, 1, 1);
         }
-        Sounds.explosionbig.at(this.x + vec.x, this.y + vec.y);
-        Calls.createBullet(deffst, this.getTeam(), this.x + vec.x, this.y + vec.y, this.rotation, (1 - 0.2) + Mathf.random(0.2), 104);
       }
     }
   },
