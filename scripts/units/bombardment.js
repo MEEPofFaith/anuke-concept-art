@@ -95,7 +95,7 @@ deffst.weaveScale = 9;
 deffst.weaveMag = 3;
 
 const deathblast = extend(BasicBulletType,{});
-deathblast.bulletSprite = "none";
+deathblast.bulletSprite = "kitty-concept-art-none";
 deathblast.frontColor = Color.valueOf("f8ad42");
 deathblast.backColor = Color.valueOf("f68021");
 deathblast.trailColor = Color.valueOf("d06b53");
