@@ -5,7 +5,7 @@ speed: 0.01
 maxVelocity: 0.6
 drag: 0.02
 range: 240
-attackLength: 160
+attackLength: 80
 shootCone: 10
 mass: 30
 hitsize: 48
