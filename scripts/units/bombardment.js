@@ -61,7 +61,7 @@ const deffst = extend(BasicBulletType, {
       b.velocity().rotate(Mathf.sin(Time.time() + b.id * 4422, this.weaveScale, this.weaveMag) * Time.delta());
       
       if(b.timer.get(0, 3 + b.fslope() * 2)){
-        Effects.effect(this.trailEffect, this.backColor, b.x, b.y, b.fslope() * 4);
+        Effects.effect(this.trailEffect, b.x, b.y, b.fslope() * 4);
       }
     }
   }
