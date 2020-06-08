@@ -122,6 +122,12 @@ const satelite = extendContent(UnitType, "bombardment", {});
 satelite.engineOffset = 36
 satelite.engineSize = 7.5;
 satelite.create(prov(() => new JavaAdapter(HoverUnit, {
+  /*load(){
+    this.super$load();
+    
+    this.secondaryShootSound = new Packages.arc.mock.MockSound();
+    (Core.assets.load("sounds/orbitalblast.ogg", Packages.arc.audio.Sound)).loaded = cons(a => this.secondaryShootSound = a);
+  },*/
   onDeath(){
     this.super$onDeath();
     Effects.effect(Fx.impactShockwave, this.x, this.y);
@@ -147,6 +153,7 @@ satelite.create(prov(() => new JavaAdapter(HoverUnit, {
           for(i = 0; i < 25; i++){
             Effects.effect(Fx.shootPyraFlame, this.x + vec.x, this.y + vec.y, this.rotation + Mathf.range(3));
           }
+          //this.secondaryShootSound.at(this.x + vec.x, this.y + vec.y);
           Sounds.explosionbig.at(this.x + vec.x, this.y + vec.y);
           Calls.createBullet(deffst, this.getTeam(), this.x + vec.x, this.y + vec.y, this.rotation, 1, 1);
         }
