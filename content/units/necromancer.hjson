@@ -1,0 +1,33 @@
+localizedName: Necromancer
+description: "Doesn't actually revive dead units."
+health: 11000
+speed: 0.01
+maxVelocity: 0.3
+drag: 0.02
+range: 240
+attackLength: 120
+mass: 30
+hitsize: 90
+flying: true
+engineSize: 8
+engineOffset: 43
+rotatespeed: 0.05
+baseRotateSpeed: 0.02
+weapon: {
+  name: none
+  bullet: {
+    type: BasicBulletType
+    damage: 0
+    lifetime: 160
+    speed: 8
+    knockback: 0
+    bulletSprite: none
+    collides: false
+    callidesTiles: false
+    collidesAir: false
+    despawnEffect: none
+    hitEffect: none
+    shootEffect: none
+    smokeEffect: none
+  }
+}

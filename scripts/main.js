@@ -1,1 +1,2 @@
-require("units/bombardment")
+require("bombardment")
+require("necromancer")

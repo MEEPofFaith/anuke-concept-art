@@ -133,8 +133,7 @@ satelite.create(prov(() => new JavaAdapter(HoverUnit, {
     
     if(this.target != null){
       if(!Units.invalidateTarget(this.target, this)){
-        if(t++ >= shooty){
-          shooty = 120;
+        if(t++ >= 120){
           t = 0;
           
           vec.trns(this.rotation-90, 0, 8);

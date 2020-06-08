@@ -1,0 +1,19 @@
+type: UnitFactory
+localizedName: Necromancer Spawner
+description: Spawns a single Necromancer for free.
+health: 10000
+produceTime: 60
+maxSpawn: 1
+hasPower: false
+consumes: {
+  items: {
+    items: [
+    ]
+  }
+}
+requirements: [
+]
+size: 4
+unitType: necromancer
+category: units
+buildVisibility: sandboxOnly

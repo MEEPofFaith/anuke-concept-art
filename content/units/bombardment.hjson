@@ -1,5 +1,9 @@
 localizedName: Banshee
-description: "[#565666]Fine print: Kinda explodes violently on death."
+description: 
+  '''
+  Missiles! Missiles! And more missiles!
+  [#565666]Fine print: Kinda explodes violently on death.
+  '''
 health: 8000
 speed: 0.01
 maxVelocity: 0.6
