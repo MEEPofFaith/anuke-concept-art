@@ -21,7 +21,7 @@ weapon: {
     lifetime: 160
     speed: 8
     knockback: 0
-    bulletSprite: none
+    bulletSprite: kitty-concept-art-none
     collides: false
     callidesTiles: false
     collidesAir: false

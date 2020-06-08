@@ -28,7 +28,7 @@ necromancer.create(prov(() => new JavaAdapter(HoverUnit, {
     
     if(this.target != null){
       if(!Units.invalidateTarget(this.target, this)){
-        if(t++ >= 8){
+        if(t++ >= 2){
           t = 0;
           ang += 22.5;
           ang = ang == 360 ? 0 : ang;
