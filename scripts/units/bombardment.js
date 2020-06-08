@@ -27,32 +27,20 @@ const flammen = newEffect(45, e => {
 });
 
 const deffst = extend(BasicBulletType, {
+  hitTile(b, tile){
+    this.hit(b, b.x, b.y);
+  },
+  despawned(b){
+    this.hit(b, b.x, b.y);
+  },
   hit(b, x, y){
     if(x != null && y != null && b != null){
       Sounds.explosion.at(b);
       Effects.shake(this.hitShake, this.hitShake, b);
       
-      Effects.effect(Fx.bigShockwave, x, y);
-      Effects.effect(Fx.impactcloud, x, y);
-      Effects.effect(Fx.dynamicExplosion, x, y, 10);
-    }
-  },
-  hitTile(b, tile){
-    if(b != null && tile != null){
-      Sounds.explosion.at(b);
-      Effects.shake(this.hitShake, this.hitShake, b);
-      
       Effects.effect(Fx.bigShockwave, b.x, b.y);
       Effects.effect(Fx.impactcloud, b.x, b.y);
-      Effects.effect(Fx.dynamicExplosion, b.x, b.y, 10);
-    }
-  },
-  despawned(b){
-    if(b != null){
-      Sounds.explosion.at(b);
-      Effects.effect(Fx.bigShockwave, b.x, b.y);
-      Effects.effect(Fx.impactcloud, b.x, b.y);
-      Effects.effect(Fx.dynamicExplosion, b.x, b.y, 10);
+      Effects.effect(Fx.dynamicExplosion, b.x, b.y, 7.5);
     }
   },
   update(b){
@@ -136,8 +124,8 @@ satelite.create(prov(() => new JavaAdapter(HoverUnit, {
     }
     Sounds.explosionbig.at(this.x, this.y);
     for(var yes = 0; yes < 360; yes ++){
-      vec.trns(0, 0, -4);
-      Calls.createBullet(deathblast, this.getTeam(), this.x, this.y + vec.y, yes, 1, 1);
+      vec.trns(this.rotation-90, 0, -4);
+      Calls.createBullet(deathblast, this.getTeam(), this.x + vec.x, this.y + vec.y, yes, 1, 1);
     }
   },
   behavior(){
@@ -146,15 +134,18 @@ satelite.create(prov(() => new JavaAdapter(HoverUnit, {
     if(this.target != null){
       if(!Units.invalidateTarget(this.target, this)){
         if(t++ >= shooty){
-          shooty = Mathf.random(75, 165);
+          shooty = 120;
           t = 0;
           
           vec.trns(this.rotation-90, 0, 8);
           for(i = 0; i < 25; i++){
-            Effects.effect(Fx.shootPyraFlame, this.x + vec.x, this.y + vec.y, this.rotation + Mathf.range(3));
+            var egg = Mathf.range(5);
+            Effects.effect(Fx.shootBig, this.x + vec.x, this.y + vec.y, this.rotation + egg);
+            Effects.effect(Fx.shootBigSmoke, this.x + vec.x, this.y + vec.y, this.rotation + egg);
           }
           //this.secondaryShootSound.at(this.x + vec.x, this.y + vec.y);
-          Sounds.explosionbig.at(this.x + vec.x, this.y + vec.y);
+          Sounds.artillery.at(this.x + vec.x, this.y + vec.y);
+          Sounds.missile.at(this.x + vec.x, this.y + vec.y);
           Calls.createBullet(deffst, this.getTeam(), this.x + vec.x, this.y + vec.y, this.rotation, 1, 1);
         }
       }
