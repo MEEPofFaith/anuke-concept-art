@@ -18,8 +18,8 @@ weapon: {
   bullet: {
     type: BasicBulletType
     damage: 0
-    lifetime: 160
-    speed: 8
+    lifetime: 240
+    speed: 1
     knockback: 0
     bulletSprite: kitty-concept-art-none
     collides: false
@@ -29,5 +29,7 @@ weapon: {
     hitEffect: none
     shootEffect: none
     smokeEffect: none
+    instantDisappear: true
+    hitTiles: false
   }
 }

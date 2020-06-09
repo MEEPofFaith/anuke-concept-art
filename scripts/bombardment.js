@@ -112,9 +112,9 @@ satelite.engineSize = 7.5;
 satelite.create(prov(() => new JavaAdapter(HoverUnit, {
   /*load(){
     this.super$load();
+    this.orbitalblast = new Packages.arc.mock.MockSound();
     
-    this.secondaryShootSound = new Packages.arc.mock.MockSound();
-    (Core.assets.load("sounds/orbitalblast.ogg", Packages.arc.audio.Sound)).loaded = cons(a => this.secondaryShootSound = a);
+    (Core.assets.load("sounds/orbitalblast.ogg", Packages.arc.audio.Sound)).loaded = cons(a => this.orbitalblast = a);
   },*/
   onDeath(){
     this.super$onDeath();
@@ -142,7 +142,7 @@ satelite.create(prov(() => new JavaAdapter(HoverUnit, {
             Effects.effect(Fx.shootBig, this.x + vec.x, this.y + vec.y, this.rotation + egg);
             Effects.effect(Fx.shootBigSmoke, this.x + vec.x, this.y + vec.y, this.rotation + egg);
           }
-          //this.secondaryShootSound.at(this.x + vec.x, this.y + vec.y);
+          //this.orbitalblast.at(this.x + vec.x, this.y + vec.y);
           Sounds.artillery.at(this.x + vec.x, this.y + vec.y);
           Sounds.missile.at(this.x + vec.x, this.y + vec.y);
           Calls.createBullet(deffst, this.getTeam(), this.x + vec.x, this.y + vec.y, this.rotation, 1, 1);
