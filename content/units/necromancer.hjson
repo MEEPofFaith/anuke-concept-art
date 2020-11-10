@@ -1,5 +1,5 @@
-localizedName: Necromancer
-description: Doesn't actually revive dead units.
+localizedName: Nebula
+description: There's always more inside.
 health: 11000
 speed: 0.01
 maxVelocity: 0.3

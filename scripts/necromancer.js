@@ -1,5 +1,6 @@
 const spawnLoc = new Vec2();
 const sumAngle = new Vec2();
+const randLoc = new Vec2();
 var t = 1;
 var ang = -45;
 
@@ -8,29 +9,27 @@ necromancer.create(prov(() => new JavaAdapter(HoverUnit, {
   onDeath(){
     this.super$onDeath();
     for(var i = 0; i < 100; i ++){
-      var randLocX = Mathf.range(60);
-      var randLocY = Mathf.range(60);
+      randLoc.trns(Mathf.range(360), 0, Mathf.range(60));
       w = UnitTypes.wraith.create(this.getTeam());
-      w.set(this.x + randLocX, this.y + randLocY);
+      w.set(this.x + randLoc.x, this.y + randLoc.y);
       w.add();
       sumAngle.trns(Mathf.range(360), 24);
-      w.velocity().set(sumAngle);
+      w.rotation(sumAngle);
       if(this.isBoss()){
         w.applyEffect(StatusEffects.boss, Number.MAX_VALUE);
       }
-      Effects.effect(Fx.spawn, this.x + randLocX, this.y + randLocY);
+      Effects.effect(Fx.spawn, this.x + randLoc.x, this.y + randLoc.y);
       
-      var randLocX = Mathf.range(60);
-      var randLocY = Mathf.range(60);
+      randLoc.trns(Mathf.range(360), 0, Mathf.range(60));
       d = UnitTypes.dagger.create(this.getTeam());
-      d.set(this.x + randLocX, this.y + randLocY);
+      d.set(this.x + randLoc.x, this.y + randLoc.y);
       d.add();
       sumAngle.trns(Mathf.range(360), 24);
-      d.velocity().set(sumAngle);
+      d.rotation(sumAngle);
       if(this.isBoss()){
         d.applyEffect(StatusEffects.boss, Number.MAX_VALUE);
       }
-      Effects.effect(Fx.spawn, this.x + randLocX, this.y + randLocY);
+      Effects.effect(Fx.spawn, this.x + randLoc.x, this.y + randLoc.y);
     }
   },
   behavior(){
@@ -49,7 +48,7 @@ necromancer.create(prov(() => new JavaAdapter(HoverUnit, {
             wa.set(this.x + spawnLoc.x, this.y + spawnLoc.y);
             wa.add();
             sumAngle.trns(this.rotation-90 + ang, 16);
-            wa.velocity().set(sumAngle);
+            wa.rotation(sumAngle);
             if(this.isBoss()){
               wa.applyEffect(StatusEffects.boss, Number.MAX_VALUE);
             }
@@ -60,7 +59,7 @@ necromancer.create(prov(() => new JavaAdapter(HoverUnit, {
             wb.set(this.x + spawnLoc.x, this.y + spawnLoc.y);
             wb.add();
             sumAngle.trns(this.rotation-90 + ang, 16);
-            wb.velocity().set(sumAngle);
+            wb.rotation(sumAngle);
             if(this.isBoss()){
               wb.applyEffect(StatusEffects.boss, Number.MAX_VALUE);
             }
@@ -71,7 +70,7 @@ necromancer.create(prov(() => new JavaAdapter(HoverUnit, {
             da.set(this.x + spawnLoc.x, this.y + spawnLoc.y);
             da.add();
             sumAngle.trns(this.rotation-90 + ang, 16);
-            da.velocity().set(sumAngle);
+            da.rotation(sumAngle);
             if(this.isBoss()){
               da.applyEffect(StatusEffects.boss, Number.MAX_VALUE);
             }
@@ -82,7 +81,7 @@ necromancer.create(prov(() => new JavaAdapter(HoverUnit, {
             db.set(this.x + spawnLoc.x, this.y + spawnLoc.y);
             db.add();
             sumAngle.trns(this.rotation-90 + ang, 16);
-            db.velocity().set(sumAngle);
+            db.rotation(sumAngle);
             if(this.isBoss()){
               db.applyEffect(StatusEffects.boss, Number.MAX_VALUE);
             }

@@ -1,6 +1,6 @@
 type: UnitFactory
-localizedName: Necromancer Spawner
-description: Spawns a single Necromancer for free.
+localizedName: Nebula Spawner
+description: Spawns a single Nebula for free.
 health: 10000
 produceTime: 60
 maxSpawn: 1

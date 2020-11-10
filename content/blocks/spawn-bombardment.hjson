@@ -1,6 +1,6 @@
 type: UnitFactory
-localizedName: Bombardment Spawner
-description: Spawns a single Bombardment for free.
+localizedName: Jupiter Spawner
+description: Spawns a single Jupiter for free.
 health: 10000
 produceTime: 60
 maxSpawn: 1
